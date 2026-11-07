@@ -43,7 +43,15 @@
   - **Printable HTML / PDF (`.html`)**: Styled, self-contained document formatted for browser print-to-PDF.
   - **Structured JSON (`.json`)**: Complete data payload for LMS integration.
 
-### 4. Error Handling & Zero-Failure Architecture
+### 4. Interactive Theme System (Black & White Modes)
+- **Selectable Themes via Top Navigation & Settings**:
+  - 🎨 **Default Color**: Modern indigo & slate palette.
+  - ⚪ **Black & White (Light Paper)**: Clean, high-contrast monochrome aesthetic inspired by paper & e-ink displays.
+  - 🖤 **Black & White (Dark Noir)**: Deep pitch black `#000000` & pure white `#ffffff` high-contrast dark mode for distraction-free reading.
+- Persists user theme preference in `localStorage`.
+- All curriculum cards, dual QC tables, timeline trackers, video cards, and quiz options adapt dynamically to the monochrome contrast scheme.
+
+### 5. Error Handling & Zero-Failure Architecture
 - Validates empty or short inputs with informative diagnostic alerts.
 - Allows retrying individual failed steps (Retry Research, Re-run QC 1, Re-run QC 2).
 - Persists all lessons and instructor edits atomically in `backend/data/lessons.json`.
