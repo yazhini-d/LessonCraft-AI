@@ -32,15 +32,15 @@ export default function ExportModal({ isOpen, onClose, lesson }) {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '14px', margin: '20px 0' }}>
           {/* Markdown Export */}
-          <div style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '16px', textAlign: 'center', background: '#fafafa' }}>
+          <div style={{ border: '1px solid var(--border-main, #e2e8f0)', borderRadius: '10px', padding: '16px', textAlign: 'center', background: 'var(--slate-50, #fafafa)' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-              <div style={{ width: '40px', height: '40px', background: '#eef2ff', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4f46e5' }}>
+              <div style={{ width: '40px', height: '40px', background: 'var(--primary-light, #eef2ff)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary, #4f46e5)' }}>
                 <FileText size={20} />
               </div>
             </div>
-            <strong style={{ display: 'block', fontSize: '15px', color: '#0f172a' }}>Markdown (.md)</strong>
-            <p style={{ fontSize: '12px', color: '#64748b', margin: '6px 0 14px 0' }}>
-              Standard GitHub Markdown formatted for LMS, Notion, or GitHub repos.
+            <strong style={{ display: 'block', fontSize: '15px', color: 'var(--text-main, #0f172a)' }}>Complete Lesson (.md)</strong>
+            <p style={{ fontSize: '12px', color: 'var(--slate-500, #64748b)', margin: '6px 0 14px 0' }}>
+              Full lesson, pacing, quiz, references, and both QC audit appendices.
             </p>
             <button 
               type="button" 
@@ -53,14 +53,14 @@ export default function ExportModal({ isOpen, onClose, lesson }) {
           </div>
 
           {/* HTML / Printable PDF */}
-          <div style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '16px', textAlign: 'center', background: '#fafafa' }}>
+          <div style={{ border: '1px solid var(--border-main, #e2e8f0)', borderRadius: '10px', padding: '16px', textAlign: 'center', background: 'var(--slate-50, #fafafa)' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-              <div style={{ width: '40px', height: '40px', background: '#ecfdf5', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981' }}>
+              <div style={{ width: '40px', height: '40px', background: 'var(--success-light, #ecfdf5)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--success, #10b981)' }}>
                 <Globe size={20} />
               </div>
             </div>
-            <strong style={{ display: 'block', fontSize: '15px', color: '#0f172a' }}>HTML / Print PDF</strong>
-            <p style={{ fontSize: '12px', color: '#64748b', margin: '6px 0 14px 0' }}>
+            <strong style={{ display: 'block', fontSize: '15px', color: 'var(--text-main, #0f172a)' }}>Printable HTML / PDF</strong>
+            <p style={{ fontSize: '12px', color: 'var(--slate-500, #64748b)', margin: '6px 0 14px 0' }}>
               Self-contained styled document ready for web viewing or Save-to-PDF.
             </p>
             <button 
@@ -69,19 +69,19 @@ export default function ExportModal({ isOpen, onClose, lesson }) {
               style={{ width: '100%' }}
               onClick={() => handleDownload('html')}
             >
-              <Download size={14} /> Open Printable HTML
+              <Download size={14} /> Open HTML
             </button>
           </div>
 
           {/* Full Structured JSON */}
-          <div style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '16px', textAlign: 'center', background: '#fafafa' }}>
+          <div style={{ border: '1px solid var(--border-main, #e2e8f0)', borderRadius: '10px', padding: '16px', textAlign: 'center', background: 'var(--slate-50, #fafafa)' }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-              <div style={{ width: '40px', height: '40px', background: '#f0f9ff', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0ea5e9' }}>
+              <div style={{ width: '40px', height: '40px', background: 'var(--secondary-light, #f0f9ff)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--secondary, #0ea5e9)' }}>
                 <Code size={20} />
               </div>
             </div>
-            <strong style={{ display: 'block', fontSize: '15px', color: '#0f172a' }}>Raw JSON Data</strong>
-            <p style={{ fontSize: '12px', color: '#64748b', margin: '6px 0 14px 0' }}>
+            <strong style={{ display: 'block', fontSize: '15px', color: 'var(--text-main, #0f172a)' }}>Raw JSON Data</strong>
+            <p style={{ fontSize: '12px', color: 'var(--slate-500, #64748b)', margin: '6px 0 14px 0' }}>
               Full payload including research, timeline, QC1, and QC2 raw objects.
             </p>
             <div style={{ display: 'flex', gap: '6px' }}>
@@ -99,9 +99,34 @@ export default function ExportModal({ isOpen, onClose, lesson }) {
                 style={{ flex: 1 }}
                 onClick={handleCopyJson}
               >
-                {copied ? <Check size={14} color="#10b981" /> : 'Copy'}
+                {copied ? <Check size={14} color="var(--primary)" /> : 'Copy'}
               </button>
             </div>
+          </div>
+        </div>
+
+        {/* Dedicated Separate QC Audit Reports Section */}
+        <div style={{ background: 'var(--slate-50, #f8fafc)', border: '1px solid var(--border-main, #e2e8f0)', borderRadius: '10px', padding: '16px', marginTop: '14px' }}>
+          <strong style={{ fontSize: '14px', color: 'var(--text-main, #0f172a)', display: 'block', marginBottom: '8px' }}>
+            Separate Quality Control (QC) Audit Reports
+          </strong>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <button
+              type="button"
+              className="btn btn-outline btn-sm"
+              onClick={() => handleDownload('qc1')}
+              style={{ justifyContent: 'center' }}
+            >
+              <Download size={13} /> Export QC 1 Audit (Factual)
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline btn-sm"
+              onClick={() => handleDownload('qc2')}
+              style={{ justifyContent: 'center' }}
+            >
+              <Download size={13} /> Export QC 2 Audit (Instructional)
+            </button>
           </div>
         </div>
 

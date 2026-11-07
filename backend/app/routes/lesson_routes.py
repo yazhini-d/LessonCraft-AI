@@ -207,11 +207,25 @@ def export_lesson(lesson_id, export_format):
             mimetype="text/html",
             headers={"Content-Disposition": f"attachment;filename={title_slug}_lesson.html"}
         )
+    elif export_format in ["qc1", "qc-factual"]:
+        content = ExportService.qc_layer1_to_markdown(lesson)
+        return Response(
+            content,
+            mimetype="text/markdown",
+            headers={"Content-Disposition": f"attachment;filename={title_slug}_qc_layer1_factual_audit.md"}
+        )
+    elif export_format in ["qc2", "qc-instructional"]:
+        content = ExportService.qc_layer2_to_markdown(lesson)
+        return Response(
+            content,
+            mimetype="text/markdown",
+            headers={"Content-Disposition": f"attachment;filename={title_slug}_qc_layer2_instructional_audit.md"}
+        )
     elif export_format == "json":
         return jsonify({
             "success": True,
             "lesson": lesson
         })
     else:
-        return format_error_response("Unsupported export format. Use 'markdown', 'html', or 'json'.", code="UNSUPPORTED_FORMAT", status_code=400)
+        return format_error_response("Unsupported export format. Use 'markdown', 'html', 'json', 'qc1', or 'qc2'.", code="UNSUPPORTED_FORMAT", status_code=400)
 
