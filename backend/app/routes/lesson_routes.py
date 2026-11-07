@@ -20,7 +20,7 @@ def get_sample_inputs():
             "title": "HTTP Requests and Responses",
             "learning_objective": "Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
             "target_duration": 45,
-            "description": "Primary benchmark specified in the Kalvium AI Research Intern assignment."
+            "description": "Primary benchmark specified in the curriculum assignment."
         },
         {
             "id": "sample-binary-search",
@@ -214,3 +214,4 @@ def export_lesson(lesson_id, export_format):
         })
     else:
         return format_error_response("Unsupported export format. Use 'markdown', 'html', or 'json'.", code="UNSUPPORTED_FORMAT", status_code=400)
+

@@ -50,7 +50,7 @@ Return a JSON object with:
 - knowledge_checks: array of 5 multiple-choice questions with (question, options [A,B,C,D], correct_index [0-3], explanation, related_concept)
 - summary_takeaways: array of concise review points
 """
-        system_prompt = "You are an elite educational instructional designer and curriculum specialist at Kalvium."
+        system_prompt = "You are an elite educational instructional designer and curriculum specialist."
         
         ai_result = AIService.generate_json_response(system_prompt, ai_prompt)
         if ai_result and "sections" in ai_result:
@@ -673,3 +673,4 @@ class SystemWorkflow:
                 "url": v.get("url", "")
             })
         return refs
+

@@ -24,7 +24,7 @@ export default function Navbar({ activeLesson, onOpenSettings }) {
           <div className="brand-text">
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <h1>LessonCraft AI</h1>
-              <span className="brand-badge">Kalvium</span>
+              <span className="brand-badge">Dual QC</span>
             </div>
             <div style={{ fontSize: '11px', color: 'var(--slate-500)' }}>45-Min Educational Synthesis & Dual QC</div>
           </div>

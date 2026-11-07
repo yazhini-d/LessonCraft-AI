@@ -49,7 +49,7 @@ Output JSON with:
 - identified_gaps: array of strings
 - suggested_improvements: array of {{"id": str, "target_section": str, "issue": str, "recommendation": str, "patch_text": str}}
 """
-        system_prompt = "You are an expert instructional designer and Kalvium curriculum review lead."
+        system_prompt = "You are an expert instructional designer and curriculum review lead."
         ai_report = AIService.generate_json_response(system_prompt, ai_prompt)
 
         if ai_report and "rubric_breakdown" in ai_report:

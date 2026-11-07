@@ -8,7 +8,7 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     debug = os.getenv("FLASK_ENV") == "development"
     print("\n" + "=" * 64)
-    print(" 🚀 LessonCraft AI — Kalvium AI Research Intern Workflow")
+    print(" 🚀 LessonCraft AI — Program Design & Dual QC Workflow")
     print(f" 🌐 Web Application & API:  http://localhost:{port}")
     print(f" 🩺 Health Check Endpoint:  http://localhost:{port}/health")
     print(f" 📚 Sample Benchmarks:      http://localhost:{port}/api/lessons/sample-inputs")

@@ -324,7 +324,7 @@ class ExportService:
 </head>
 <body>
     <div class="header">
-        <div class="logo-tag">Kalvium AI Research • Program Design</div>
+        <div class="logo-tag">AI Research • Program Design</div>
         <h1>{title}</h1>
         <div class="meta-bar">
             <span>⏱️ <strong>Target Duration:</strong> {duration} Minutes</span>
@@ -379,3 +379,99 @@ class ExportService:
 </body>
 </html>"""
         return html
+
+    @classmethod
+    def qc_layer1_to_markdown(cls, lesson: Dict[str, Any]) -> str:
+        """Exports a standalone formal audit report for QC Layer 1 (Research & Factual Accuracy)."""
+        title = lesson.get("title", "Untitled Lesson")
+        objective = lesson.get("learning_objective", "")
+        qc1 = lesson.get("qc_layer_1", {})
+        research = lesson.get("research", {})
+
+        md = []
+        md.append(f"# Quality Control Audit Report: Layer 1")
+        md.append(f"## Research & Factual Accuracy Audit\n")
+        md.append(f"**Curriculum Title:** {title}")
+        md.append(f"**Target Objective:** {objective}")
+        md.append(f"**Audited At:** {qc1.get('audited_at', 'N/A')}")
+        md.append(f"**Overall Factual Accuracy Score:** {qc1.get('overall_score', 'N/A')} / 100")
+        md.append(f"**Audit Status:** {qc1.get('status', 'N/A')}")
+        md.append(f"**Source Reliability Rating:** {qc1.get('source_reliability_rating', 'N/A')}\n")
+        md.append("---\n")
+
+        md.append("### 1. Claim-by-Claim Factual Verification Table")
+        md.append("| Technical Claim | Status | Authoritative Source | Severity | Auditor Comment |")
+        md.append("| :--- | :---: | :--- | :---: | :--- |")
+        for claim in qc1.get("claims_audit", []):
+            md.append(f"| {claim.get('claim')} | {claim.get('status')} | {claim.get('source')} | {claim.get('severity')} | {claim.get('comment', '')} |")
+        md.append("")
+
+        md.append("### 2. Source Credibility & Bibliography Reliability")
+        for src in qc1.get("sources_audit", []):
+            md.append(f"- **{src.get('source_name')}** ({src.get('type')}) — Grade: **{src.get('credibility_grade')}**")
+            md.append(f"  *Relevance:* {src.get('relevance')}")
+        md.append("")
+
+        if qc1.get("identified_gaps"):
+            md.append("### 3. Identified Factual & Technical Gaps")
+            for gap in qc1.get("identified_gaps", []):
+                md.append(f"- {gap}")
+            md.append("")
+
+        if qc1.get("suggested_improvements"):
+            md.append("### 4. Actionable Recommendations & Patches")
+            for fix in qc1.get("suggested_improvements", []):
+                status_str = "APPLIED" if fix.get("applied") else "PENDING"
+                md.append(f"#### [{status_str}] {fix.get('target_section')} (ID: {fix.get('id')})")
+                md.append(f"- **Issue Identified:** {fix.get('issue')}")
+                md.append(f"- **Recommendation:** {fix.get('recommendation')}")
+                md.append(f"- **Recommended Patch:**\n```markdown\n{fix.get('patch_text')}\n```\n")
+
+        return "\n".join(md)
+
+    @classmethod
+    def qc_layer2_to_markdown(cls, lesson: Dict[str, Any]) -> str:
+        """Exports a standalone formal audit report for QC Layer 2 (Instructional Quality)."""
+        title = lesson.get("title", "Untitled Lesson")
+        objective = lesson.get("learning_objective", "")
+        duration = lesson.get("target_duration", 45)
+        qc2 = lesson.get("qc_layer_2", {})
+
+        md = []
+        md.append(f"# Quality Control Audit Report: Layer 2")
+        md.append(f"## Instructional Quality & Pedagogical Alignment Audit\n")
+        md.append(f"**Curriculum Title:** {title}")
+        md.append(f"**Target Objective:** {objective}")
+        md.append(f"**Calibrated Duration:** {duration} Minutes")
+        md.append(f"**Audited At:** {qc2.get('audited_at', 'N/A')}")
+        md.append(f"**Overall Instructional Score:** {qc2.get('overall_score', 'N/A')} / 100")
+        md.append(f"**Objective Alignment Score:** {qc2.get('objective_alignment_score', 'N/A')}%")
+        md.append(f"**Bloom's Taxonomy Classification:** {qc2.get('bloom_taxonomy_level', 'N/A')}\n")
+        md.append("---\n")
+
+        rubric = qc2.get("rubric_breakdown", {})
+        if rubric:
+            md.append("### 1. Five-Dimensional Pedagogical Rubric")
+            md.append("| Dimension | Score | Pedagogical Feedback |")
+            md.append("| :--- | :---: | :--- |")
+            for dim, val in rubric.items():
+                md.append(f"| {dim.replace('_', ' ').title()} | {val.get('score')}/100 | {val.get('feedback')} |")
+            md.append("")
+
+        if qc2.get("identified_gaps"):
+            md.append("### 2. Identified Instructional & Scaffolding Gaps")
+            for gap in qc2.get("identified_gaps", []):
+                md.append(f"- {gap}")
+            md.append("")
+
+        if qc2.get("suggested_improvements"):
+            md.append("### 3. Actionable Pedagogical Recommendations & Cues")
+            for fix in qc2.get("suggested_improvements", []):
+                status_str = "APPLIED" if fix.get("applied") else "PENDING"
+                md.append(f"#### [{status_str}] {fix.get('target_section')} (ID: {fix.get('id')})")
+                md.append(f"- **Pedagogical Gap:** {fix.get('issue')}")
+                md.append(f"- **Instructional Recommendation:** {fix.get('recommendation')}")
+                md.append(f"- **Recommended Cue/Patch:**\n```markdown\n{fix.get('patch_text')}\n```\n")
+
+        return "\n".join(md)
+

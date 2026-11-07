@@ -1,6 +1,6 @@
 # LessonCraft AI — AI-Powered Lesson Creation & Dual Quality Control Tool
 
-> **Built for the Kalvium AI Research Intern (Program Design Team) Assignment**  
+> **AI Research Program Design Engineering Task**  
 > An engineering platform designed to research, synthesize, review, and validate 45-minute educational lessons with two independent Quality Control (QC) layers.
 
 ---
@@ -184,7 +184,7 @@ All 4 test suites verify:
 ## 🎥 Demo Video Guide (For Submission)
 
 When recording your 3–5 minute submission video:
-1. **Introduction (30s)**: Introduce yourself, the role (AI Research Intern at Kalvium), and the problem statement.
+1. **Introduction (30s)**: Introduce yourself, the project purpose, and the problem statement.
 2. **Input & Generation (45s)**: Click the "HTTP Requests & Responses" preset. Show the 4-stage pipeline running (Research -> Synthesis -> QC 1 -> QC 2).
 3. **Research & Supplementary Resources (45s)**: Show the gathered Books, MDN/RFC links, and embeddable YouTube video resources.
 4. **Demonstrating Both QC Layers (60s)**:
