@@ -54,3 +54,4 @@ def format_error_response(message: str, code: str = "VALIDATION_ERROR", status_c
     if details:
         payload["error"]["details"] = details
     return payload, status_code
+

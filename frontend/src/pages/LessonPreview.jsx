@@ -650,3 +650,4 @@ export default function LessonPreview({ activeLesson, onLessonUpdated, onNotify 
 function chr(code) {
   return String.fromCharCode(code);
 }
+

@@ -22,3 +22,4 @@ class Config:
     @classmethod
     def init_app(cls, app):
         os.makedirs(cls.DATA_DIR, exist_ok=True)
+

@@ -61,3 +61,4 @@ class AIService:
                 logger.error(f"OpenAI API generation failed: {e}")
 
         return None
+

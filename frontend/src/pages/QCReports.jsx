@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { 
-  ShieldCheck, 
-  CheckCircle, 
-  AlertTriangle, 
-  XCircle, 
-  FileCheck2, 
-  GraduationCap, 
-  BookOpen, 
-  ArrowRight, 
-  RotateCcw, 
-  Check, 
-  Eye, 
+import {
+  ShieldCheck,
+  CheckCircle,
+  AlertTriangle,
+  XCircle,
+  FileCheck2,
+  GraduationCap,
+  BookOpen,
+  ArrowRight,
+  RotateCcw,
+  Check,
+  Eye,
   Sparkles,
   Award
 } from 'lucide-react';
@@ -107,8 +107,8 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
         </div>
 
         <div style={{ display: 'flex', gap: '10px' }}>
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="btn btn-outline"
             onClick={() => handleReRunAudit('both')}
             disabled={reAuditing}
@@ -117,8 +117,8 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
             <span>{reAuditing ? 'Re-Auditing...' : 'Re-Run Both Audits'}</span>
           </button>
 
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="btn btn-primary"
             onClick={() => navigate(`/preview/${lesson.id}`)}
           >
@@ -131,9 +131,9 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
       {/* High-Level Score Summary Cards */}
       <div className="qc-grid">
         {/* Layer 1 Summary */}
-        <div 
-          className="qc-audit-card" 
-          style={{ 
+        <div
+          className="qc-audit-card"
+          style={{
             borderTop: '4px solid #4f46e5',
             cursor: 'pointer',
             borderColor: activeTab === 'layer1' ? '#4f46e5' : '#e2e8f0',
@@ -165,9 +165,9 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
         </div>
 
         {/* Layer 2 Summary */}
-        <div 
-          className="qc-audit-card" 
-          style={{ 
+        <div
+          className="qc-audit-card"
+          style={{
             borderTop: '4px solid #10b981',
             cursor: 'pointer',
             borderColor: activeTab === 'layer2' ? '#10b981' : '#e2e8f0',
@@ -372,12 +372,12 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {qc1.suggested_improvements?.map((fix) => (
-                <div 
-                  key={fix.id} 
-                  style={{ 
-                    border: '1px solid #e2e8f0', 
-                    borderRadius: '10px', 
-                    padding: '18px', 
+                <div
+                  key={fix.id}
+                  style={{
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '10px',
+                    padding: '18px',
                     background: fix.applied ? '#f0fdf4' : '#ffffff',
                     borderLeft: fix.applied ? '4px solid #10b981' : '4px solid #4f46e5'
                   }}
@@ -489,12 +489,12 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {qc2.suggested_improvements?.map((fix) => (
-                <div 
-                  key={fix.id} 
-                  style={{ 
-                    border: '1px solid #e2e8f0', 
-                    borderRadius: '10px', 
-                    padding: '18px', 
+                <div
+                  key={fix.id}
+                  style={{
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '10px',
+                    padding: '18px',
                     background: fix.applied ? '#f0fdf4' : '#ffffff',
                     borderLeft: fix.applied ? '4px solid #10b981' : '4px solid #10b981'
                   }}
@@ -541,3 +541,4 @@ export default function QCReports({ activeLesson, onLessonUpdated, onNotify }) {
     </div>
   );
 }
+

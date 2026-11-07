@@ -89,3 +89,4 @@ def rerun_both_qc():
     except Exception as e:
         logger.exception("Failed to re-run both QC layers")
         return format_error_response("Failed to re-audit lesson", code="QC_ALL_ERROR", status_code=500)
+

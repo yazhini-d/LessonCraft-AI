@@ -201,3 +201,4 @@ export default function LessonEditor({ lesson, onUpdate, onNotify }) {
     </div>
   );
 }
+

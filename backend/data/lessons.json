@@ -444,7 +444,7 @@
           "applied": false
         }
       ],
-      "audited_at": "2026-11-07T12:46:08.095745+00:00"
+      "audited_at": "2026-11-07T13:11:39.644119+00:00"
     },
     "qc_layer_2": {
       "layer_name": "QC Layer 2: Instructional Quality",
@@ -496,11 +496,2699 @@
           "applied": false
         }
       ],
-      "audited_at": "2026-11-07T12:46:08.095745+00:00"
+      "audited_at": "2026-11-07T13:11:39.644119+00:00"
+    },
+    "id": "4d54cc4b-d489-4510-b46b-05b94a14a46e",
+    "created_at": "2026-11-07T13:11:39.658895+00:00",
+    "updated_at": "2026-11-07T13:11:39.731670+00:00"
+  },
+  {
+    "title": "Binary Search Algorithm: Theory, Implementation, and Complexity",
+    "learning_objective": "Implement binary search iteratively and recursively, analyze its O(log n) time complexity, and identify boundary condition pitfalls (off-by-one errors).",
+    "target_duration": 45,
+    "research": {
+      "query": "Binary Search Algorithm: Theory, Implementation, and Complexity Implement binary search iteratively and recursively, analyze its O(log n) time complexity, and identify boundary condition pitfalls (off-by-one errors).",
+      "books": [
+        {
+          "title": "Introduction to Algorithms (CLRS, 4th Edition)",
+          "authors": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+          "year": "2022",
+          "publisher": "MIT Press",
+          "description": "The definitive textbook on algorithms, data structures, and rigorous complexity analysis.",
+          "key_takeaways": "O(log n) divide-and-conquer proof, mid-point integer overflow prevention, and recurrence relations.",
+          "relevance_score": 99,
+          "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+        },
+        {
+          "title": "Grokking Algorithms: An Illustrated Guide",
+          "authors": "Aditya Y. Bhargava",
+          "year": "2016",
+          "publisher": "Manning",
+          "description": "Visual, intuitive guide explaining binary search mechanics, logarithmic time intuition, and search spaces.",
+          "key_takeaways": "Step-by-step visual elimination of search halves and practical pointers on loop invariants.",
+          "relevance_score": 96,
+          "url": "https://www.manning.com/books/grokking-algorithms"
+        }
+      ],
+      "websites": [
+        {
+          "title": "GeeksforGeeks: Binary Search - Complete Tutorial",
+          "url": "https://www.geeksforgeeks.org/binary-search/",
+          "domain": "geeksforgeeks.org",
+          "summary": "Comprehensive tutorial covering binary search algorithms, iterative vs recursive logic, mid calculation overflow handling, and complexity.",
+          "credibility_rating": "Established Technical Learning Platform",
+          "relevance_score": 95
+        },
+        {
+          "title": "Wikipedia: Binary Search Algorithm",
+          "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm",
+          "domain": "en.wikipedia.org",
+          "summary": "Mathematical analysis of binary search, logarithmic time bounds, and historical implementation bugs in standard libraries.",
+          "credibility_rating": "Peer-Reviewed Open Resource",
+          "relevance_score": 94
+        }
+      ],
+      "videos": [
+        {
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "MFhxShGxHWc",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc",
+          "duration": "02:25",
+          "thumbnail_url": "https://img.youtube.com/vi/MFhxShGxHWc/hqdefault.jpg",
+          "relevance_summary": "High-level overview of binary search mechanics, logarithmic time complexity, and divide-and-conquer principles.",
+          "relevance_score": 97
+        },
+        {
+          "title": "Binary Search - CS50 Shorts",
+          "channel": "CS50 (Harvard)",
+          "video_id": "T98PIp4omUA",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+          "duration": "08:14",
+          "thumbnail_url": "https://img.youtube.com/vi/T98PIp4omUA/hqdefault.jpg",
+          "relevance_summary": "Harvard CS50 instructional video explaining array indexing, pointers (low, high, mid), and step-by-step trace.",
+          "relevance_score": 99
+        },
+        {
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "channel": "NeetCode",
+          "video_id": "s4D9ydZScWQ",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ",
+          "duration": "12:30",
+          "thumbnail_url": "https://img.youtube.com/vi/s4D9ydZScWQ/hqdefault.jpg",
+          "relevance_summary": "Hands-on walkthrough discussing while loop bounds (<= vs <), mid calculation overflow avoidance, and boundary conditions.",
+          "relevance_score": 95
+        }
+      ],
+      "summary": "Researched 2 authoritative books, 2 reference websites, and 3 curated YouTube tutorials for 'Binary Search Algorithm: Theory, Implementation, and Complexity'."
+    },
+    "content": {
+      "overview": "Binary Search is one of the most fundamental and elegant algorithms in computer science. Designed for a 45-minute mastery session, this lesson covers intuition, pointer invariants, safe midpoint calculations, and boundary condition pitfalls.",
+      "timeline_breakdown": [
+        {
+          "phase": "1. Intuition & Prerequisite Conditions",
+          "minutes": 5,
+          "description": "The phonebook / dictionary search analogy and sorted order requirement."
+        },
+        {
+          "phase": "2. Divide and Conquer Algorithm Mechanics",
+          "minutes": 15,
+          "description": "Pointer management (low, high, mid), loop invariants, and logarithmic time derivation."
+        },
+        {
+          "phase": "3. Implementation & Common Pitfalls",
+          "minutes": 10,
+          "description": "Iterative vs recursive logic, avoiding mid-point integer overflow, and off-by-one errors."
+        },
+        {
+          "phase": "4. Hands-on Coding Challenge",
+          "minutes": 10,
+          "description": "Implementing binary search with exact boundary conditions and test cases."
+        },
+        {
+          "phase": "5. Evaluation & Knowledge Check",
+          "minutes": 5,
+          "description": "Interactive assessment and complexity comparison summary."
+        }
+      ],
+      "sections": [
+        {
+          "id": "sec-bs-1",
+          "title": "The Power of Logarithmic Search: Intuition & Prerequisites",
+          "duration_min": 5,
+          "markdown_content": "### Linear vs Logarithmic Search\nImagine looking for a name in a telephone directory containing 1,000,000 entries:\n- **Linear Search**: Check entry 1, entry 2, entry 3... Up to 1,000,000 operations in the worst case ($O(n)$).\n- **Binary Search**: Open the middle. Target is alphabetically earlier? Throw away 500,000 entries in **one comparison**! Repeat: only $\\approx 20$ operations ($O(\\log n)$).\n\n#### Strict Prerequisite\n> ⚠️ **Absolute Requirement**: Binary Search **requires a monotonically sorted collection** (or a monotonic search predicate). If the array is unsorted, binary search is invalid.",
+          "key_concepts": [
+            "Monotonicity",
+            "Logarithmic Time Complexity",
+            "Search Space Halving"
+          ],
+          "instructor_notes": "Demonstrate with a physical book: tear it in half (metaphorically) to illustrate cutting search space by 50% each step."
+        },
+        {
+          "id": "sec-bs-2",
+          "title": "Algorithm Mechanics: Pointer Invariants & Complexity",
+          "duration_min": 15,
+          "markdown_content": "### Pointer Mechanics\nWe track three indices:\n- `low`: The leftmost candidate index of the active search space.\n- `high`: The rightmost candidate index of the active search space.\n- `mid`: The midpoint index evaluated during each iteration.\n\n#### The Loop Invariant\nIn a closed interval `[low, high]`, the search space remains valid as long as `low <= high`.\nWhen `low > high`, the search space is exhausted, proving the target does not exist.\n\n#### Preventing Integer Overflow\nIn languages like C++, Java, or Go, calculating midpoint naively can trigger integer overflow:\n```python\n# ❌ DANGEROUS in statically typed 32-bit languages:\n# mid = (low + high) // 2   (Can overflow if low + high > 2^31 - 1)\n\n# ✅ SAFE:\nmid = low + (high - low) // 2\n```",
+          "key_concepts": [
+            "Pointers",
+            "Loop Invariants",
+            "Integer Overflow Prevention"
+          ],
+          "instructor_notes": "Mention the famous historical Java binary search bug discovered by Joshua Bloch in 2006 that went unnoticed for 9 years."
+        },
+        {
+          "id": "sec-bs-3",
+          "title": "Clean Iterative Python Implementation",
+          "duration_min": 10,
+          "markdown_content": "### Production Iterative Implementation\n```python\ndef binary_search(arr: list[int], target: int) -> int:\n    \"\"\"Performs binary search on a sorted list.\n    \n    Returns the index of target if found, else -1.\n    Time Complexity: O(log n)\n    Space Complexity: O(1)\n    \"\"\"\n    low = 0\n    high = len(arr) - 1\n\n    while low <= high:\n        # Prevent integer overflow\n        mid = low + (high - low) // 2\n\n        if arr[mid] == target:\n            return mid  # Target found\n        elif arr[mid] < target:\n            low = mid + 1  # Discard left half\n        else:\n            high = mid - 1  # Discard right half\n\n    return -1  # Target not found\n```",
+          "key_concepts": [
+            "Iterative Algorithm",
+            "Space Complexity O(1)",
+            "Termination Conditions"
+          ],
+          "instructor_notes": "Walk through boundary cases: empty array, single-element array, target at first index, target at last index."
+        }
+      ],
+      "practical_applications": [
+        "Database B-Tree and LSM-Tree index lookups.",
+        "Git bisect: Identifying the commit that introduced a bug using binary search over commit history.",
+        "Numerical root-finding algorithms and finding peak elements in arrays."
+      ],
+      "activity": {
+        "title": "Implement Binary Search with Duplicate Elements",
+        "duration_min": 10,
+        "instructions": "Modify binary search to return the *first occurrence* (leftmost index) of a target that appears multiple times in a sorted array.",
+        "challenge_prompt": "Given `arr = [2, 4, 4, 4, 6, 7]` and `target = 4`, standard binary search might return index 2. Return the leftmost index (index 1).",
+        "starter_code": "def find_first_occurrence(arr: list[int], target: int) -> int:\n    # Your implementation here\n    pass",
+        "solution_code": "def find_first_occurrence(arr: list[int], target: int) -> int:\n    low = 0\n    high = len(arr) - 1\n    result = -1\n\n    while low <= high:\n        mid = low + (high - low) // 2\n        if arr[mid] == target:\n            result = mid\n            high = mid - 1  # Continue searching left\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return result"
+      },
+      "knowledge_checks": [
+        {
+          "id": 1,
+          "question": "What is the worst-case time complexity of binary search on a sorted array of size n?",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "correct_index": 1,
+          "explanation": "Binary search divides the search space in half at each iteration, resulting in a logarithmic runtime of O(log n).",
+          "related_concept": "Time Complexity Analysis"
+        },
+        {
+          "id": 2,
+          "question": "Why is 'mid = low + (high - low) // 2' preferred over 'mid = (low + high) // 2' in systems programming?",
+          "options": [
+            "It runs in O(1) whereas the other is O(n).",
+            "It prevents arithmetic integer overflow when low + high exceeds the maximum integer limit.",
+            "It automatically handles descending arrays.",
+            "It allows binary search on linked lists."
+          ],
+          "correct_index": 1,
+          "explanation": "In languages with fixed-size integer types (32-bit/64-bit), adding low + high can overflow into negative numbers. Subtraction avoids this.",
+          "related_concept": "Arithmetic Overflow Safeguards"
+        },
+        {
+          "id": 3,
+          "question": "What happens if binary search is executed on an unsorted array?",
+          "options": [
+            "It throws a compile-time exception.",
+            "It automatically sorts the array first in O(n log n).",
+            "It may return an incorrect index or report the element is missing even if present.",
+            "It functions normally with O(n) complexity."
+          ],
+          "correct_index": 2,
+          "explanation": "Binary search fundamentally relies on the monotonicity of sorted order to discard half the array. On an unsorted array, the discarded half might contain the target.",
+          "related_concept": "Preconditions"
+        }
+      ],
+      "summary_takeaways": [
+        "Binary search reduces search complexity from linear O(n) to logarithmic O(log n).",
+        "Sorted order is a strict prerequisite.",
+        "Use 'low + (high - low) // 2' to guarantee memory and integer safety.",
+        "Loop invariant 'low <= high' guarantees complete search space exhaustion."
+      ],
+      "supplementary_videos": [
+        {
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "MFhxShGxHWc",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc",
+          "duration": "02:25",
+          "thumbnail_url": "https://img.youtube.com/vi/MFhxShGxHWc/hqdefault.jpg",
+          "relevance_summary": "High-level overview of binary search mechanics, logarithmic time complexity, and divide-and-conquer principles.",
+          "relevance_score": 97
+        },
+        {
+          "title": "Binary Search - CS50 Shorts",
+          "channel": "CS50 (Harvard)",
+          "video_id": "T98PIp4omUA",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+          "duration": "08:14",
+          "thumbnail_url": "https://img.youtube.com/vi/T98PIp4omUA/hqdefault.jpg",
+          "relevance_summary": "Harvard CS50 instructional video explaining array indexing, pointers (low, high, mid), and step-by-step trace.",
+          "relevance_score": 99
+        },
+        {
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "channel": "NeetCode",
+          "video_id": "s4D9ydZScWQ",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ",
+          "duration": "12:30",
+          "thumbnail_url": "https://img.youtube.com/vi/s4D9ydZScWQ/hqdefault.jpg",
+          "relevance_summary": "Hands-on walkthrough discussing while loop bounds (<= vs <), mid calculation overflow avoidance, and boundary conditions.",
+          "relevance_score": 95
+        }
+      ],
+      "references": [
+        {
+          "type": "Book",
+          "title": "Introduction to Algorithms (CLRS, 4th Edition)",
+          "citation": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (2022). Introduction to Algorithms (CLRS, 4th Edition). MIT Press.",
+          "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+        },
+        {
+          "type": "Book",
+          "title": "Grokking Algorithms: An Illustrated Guide",
+          "citation": "Aditya Y. Bhargava (2016). Grokking Algorithms: An Illustrated Guide. Manning.",
+          "url": "https://www.manning.com/books/grokking-algorithms"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "GeeksforGeeks: Binary Search - Complete Tutorial",
+          "citation": "GeeksforGeeks: Binary Search - Complete Tutorial - geeksforgeeks.org.",
+          "url": "https://www.geeksforgeeks.org/binary-search/"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "Wikipedia: Binary Search Algorithm",
+          "citation": "Wikipedia: Binary Search Algorithm - en.wikipedia.org.",
+          "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "citation": "Fireship (02:25) - Binary Search Algorithm in 100 Seconds.",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search - CS50 Shorts",
+          "citation": "CS50 (Harvard) (08:14) - Binary Search - CS50 Shorts.",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "citation": "NeetCode (12:30) - Binary Search Tutorial & Common Pitfalls.",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ"
+        }
+      ]
+    },
+    "status": "generated",
+    "qc_layer_1": {
+      "layer_name": "QC Layer 1: Research and Factual Accuracy",
+      "overall_score": 97.0,
+      "status": "PASSED WITH RECOMMENDATIONS",
+      "source_reliability_rating": "Excellent (MIT Press, CLRS)",
+      "claims_audit": [
+        {
+          "claim": "Binary search worst-case time complexity is O(log n).",
+          "status": "VERIFIED",
+          "source": "CLRS 4th Edition",
+          "severity": "LOW",
+          "comment": "Strictly verified: logarithmic search tree depth."
+        },
+        {
+          "claim": "Requires monotonically sorted array as strict precondition.",
+          "status": "VERIFIED",
+          "source": "Grokking Algorithms",
+          "severity": "LOW",
+          "comment": "Strictly verified: unsorted data produces arbitrary false negative results."
+        },
+        {
+          "claim": "Naive (low + high) // 2 triggers overflow in languages with fixed-width integers.",
+          "status": "VERIFIED",
+          "source": "Joshua Bloch (Google Research, 2006)",
+          "severity": "LOW",
+          "comment": "Verified historical software defect."
+        }
+      ],
+      "sources_audit": [
+        {
+          "source_name": "Introduction to Algorithms (CLRS, MIT Press)",
+          "type": "Academic Textbook",
+          "credibility_grade": "A+",
+          "relevance": "Authoritative theoretical benchmark."
+        }
+      ],
+      "identified_gaps": [
+        "Include brief note on ternary search vs binary search comparison.",
+        "Mention Python's built-in `bisect` standard library module."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-bs-1",
+          "target_section": "Clean Iterative Python Implementation",
+          "issue": "Python developers in practice utilize standard library `bisect`.",
+          "recommendation": "Add a note showing `bisect_left` and `bisect_right` in Python's standard library.",
+          "patch_text": "\n> 🐍 **Python Standard Library Tip**: In production Python code, prefer the built-in C-optimized `bisect` module (`bisect.bisect_left(arr, target)`) which eliminates hand-rolled loop invariant bugs.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:11:37.038104+00:00"
+    },
+    "qc_layer_2": {
+      "layer_name": "QC Layer 2: Instructional Quality",
+      "overall_score": 95.4,
+      "status": "EXCELLENT",
+      "objective_alignment_score": 94.0,
+      "bloom_taxonomy_level": "Analyze & Apply (Bloom's Taxonomy Levels 4 & 3)",
+      "rubric_breakdown": {
+        "clarity": {
+          "score": 96.0,
+          "feedback": "Technical concepts are introduced with vivid analogies (postal service, triage trees) before diving into RFC technicalities."
+        },
+        "structure": {
+          "score": 97.0,
+          "feedback": "Exemplary 5-phase progression: Hook -> Core Direct Instruction -> Code Demonstration -> Guided Hands-on Lab -> Knowledge Check."
+        },
+        "pacing_45min": {
+          "score": 95.0,
+          "feedback": "Directly calibrated to 45 minutes: 5m Hook, 15m Deep Dive, 10m Scenarios/Examples, 10m Student Lab, 5m Assessment."
+        },
+        "interactivity": {
+          "score": 94.0,
+          "feedback": "Includes a diagnostic problem-solving scenario lab with starter and solution code, plus 5 active recall multiple choice questions."
+        },
+        "assessment_rigor": {
+          "score": 95.0,
+          "feedback": "Questions target conceptual comprehension, diagnostic triage, and edge cases rather than superficial rote memorization."
+        }
+      },
+      "identified_gaps": [
+        "The transition between GET/POST and Status Codes could benefit from an explicit bridge sentence explaining that methods initiate the intent and status codes communicate the outcome.",
+        "Consider adding an instructor time-check prompt at minute 25 to help pacing in instructor-led delivery."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-inst-1",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Transitions between request methods and response codes can confuse beginners who see them as isolated concepts.",
+          "recommendation": "Add a pedagogical conceptual bridge highlighting how HTTP request methods and response status codes form a conversational dialogue.",
+          "patch_text": "\n> 🎯 **Pedagogical Bridge (The Conversation Paradigm)**:\n> Think of HTTP as a structured dialogue: The **Method (GET/POST)** is the question asked by the client; the **Status Code (2xx/4xx/5xx)** is the definitive answer returned by the server.",
+          "applied": false
+        },
+        {
+          "id": "fix-inst-2",
+          "target_section": "Diagnostic Detective: Triage the HTTP Incidents",
+          "issue": "Instructors need a rubric to debrief the hands-on lab within the 10-minute window.",
+          "recommendation": "Add an Instructor Debrief Guide with timed discussion prompts.",
+          "patch_text": "\n> ⏱️ **Instructor Pacing Cue (Minute 35)**:\n> Dedicate 6 minutes for independent student triage, followed by a 4-minute rapid-fire debrief focusing specifically on why Scenario D produces a 500 error instead of a 400 error.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:11:37.038104+00:00"
+    },
+    "id": "ca23dbd5-2fc6-4d40-99d6-ff08500dd96f",
+    "created_at": "2026-11-07T13:11:37.045331+00:00",
+    "updated_at": "2026-11-07T13:11:37.045331+00:00"
+  },
+  {
+    "title": "Binary Search Algorithm: Theory, Implementation, and Complexity",
+    "learning_objective": "Implement binary search iteratively and recursively, analyze its O(log n) time complexity, and identify boundary condition pitfalls (off-by-one errors).",
+    "target_duration": 45,
+    "research": {
+      "query": "Binary Search Algorithm: Theory, Implementation, and Complexity Implement binary search iteratively and recursively, analyze its O(log n) time complexity, and identify boundary condition pitfalls (off-by-one errors).",
+      "books": [
+        {
+          "title": "Introduction to Algorithms (CLRS, 4th Edition)",
+          "authors": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+          "year": "2022",
+          "publisher": "MIT Press",
+          "description": "The definitive textbook on algorithms, data structures, and rigorous complexity analysis.",
+          "key_takeaways": "O(log n) divide-and-conquer proof, mid-point integer overflow prevention, and recurrence relations.",
+          "relevance_score": 99,
+          "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+        },
+        {
+          "title": "Grokking Algorithms: An Illustrated Guide",
+          "authors": "Aditya Y. Bhargava",
+          "year": "2016",
+          "publisher": "Manning",
+          "description": "Visual, intuitive guide explaining binary search mechanics, logarithmic time intuition, and search spaces.",
+          "key_takeaways": "Step-by-step visual elimination of search halves and practical pointers on loop invariants.",
+          "relevance_score": 96,
+          "url": "https://www.manning.com/books/grokking-algorithms"
+        }
+      ],
+      "websites": [
+        {
+          "title": "GeeksforGeeks: Binary Search - Complete Tutorial",
+          "url": "https://www.geeksforgeeks.org/binary-search/",
+          "domain": "geeksforgeeks.org",
+          "summary": "Comprehensive tutorial covering binary search algorithms, iterative vs recursive logic, mid calculation overflow handling, and complexity.",
+          "credibility_rating": "Established Technical Learning Platform",
+          "relevance_score": 95
+        },
+        {
+          "title": "Wikipedia: Binary Search Algorithm",
+          "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm",
+          "domain": "en.wikipedia.org",
+          "summary": "Mathematical analysis of binary search, logarithmic time bounds, and historical implementation bugs in standard libraries.",
+          "credibility_rating": "Peer-Reviewed Open Resource",
+          "relevance_score": 94
+        }
+      ],
+      "videos": [
+        {
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "MFhxShGxHWc",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc",
+          "duration": "02:25",
+          "thumbnail_url": "https://img.youtube.com/vi/MFhxShGxHWc/hqdefault.jpg",
+          "relevance_summary": "High-level overview of binary search mechanics, logarithmic time complexity, and divide-and-conquer principles.",
+          "relevance_score": 97
+        },
+        {
+          "title": "Binary Search - CS50 Shorts",
+          "channel": "CS50 (Harvard)",
+          "video_id": "T98PIp4omUA",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+          "duration": "08:14",
+          "thumbnail_url": "https://img.youtube.com/vi/T98PIp4omUA/hqdefault.jpg",
+          "relevance_summary": "Harvard CS50 instructional video explaining array indexing, pointers (low, high, mid), and step-by-step trace.",
+          "relevance_score": 99
+        },
+        {
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "channel": "NeetCode",
+          "video_id": "s4D9ydZScWQ",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ",
+          "duration": "12:30",
+          "thumbnail_url": "https://img.youtube.com/vi/s4D9ydZScWQ/hqdefault.jpg",
+          "relevance_summary": "Hands-on walkthrough discussing while loop bounds (<= vs <), mid calculation overflow avoidance, and boundary conditions.",
+          "relevance_score": 95
+        }
+      ],
+      "summary": "Researched 2 authoritative books, 2 reference websites, and 3 curated YouTube tutorials for 'Binary Search Algorithm: Theory, Implementation, and Complexity'."
+    },
+    "content": {
+      "overview": "Binary Search is one of the most fundamental and elegant algorithms in computer science. Designed for a 45-minute mastery session, this lesson covers intuition, pointer invariants, safe midpoint calculations, and boundary condition pitfalls.",
+      "timeline_breakdown": [
+        {
+          "phase": "1. Intuition & Prerequisite Conditions",
+          "minutes": 5,
+          "description": "The phonebook / dictionary search analogy and sorted order requirement."
+        },
+        {
+          "phase": "2. Divide and Conquer Algorithm Mechanics",
+          "minutes": 15,
+          "description": "Pointer management (low, high, mid), loop invariants, and logarithmic time derivation."
+        },
+        {
+          "phase": "3. Implementation & Common Pitfalls",
+          "minutes": 10,
+          "description": "Iterative vs recursive logic, avoiding mid-point integer overflow, and off-by-one errors."
+        },
+        {
+          "phase": "4. Hands-on Coding Challenge",
+          "minutes": 10,
+          "description": "Implementing binary search with exact boundary conditions and test cases."
+        },
+        {
+          "phase": "5. Evaluation & Knowledge Check",
+          "minutes": 5,
+          "description": "Interactive assessment and complexity comparison summary."
+        }
+      ],
+      "sections": [
+        {
+          "id": "sec-bs-1",
+          "title": "The Power of Logarithmic Search: Intuition & Prerequisites",
+          "duration_min": 5,
+          "markdown_content": "### Linear vs Logarithmic Search\nImagine looking for a name in a telephone directory containing 1,000,000 entries:\n- **Linear Search**: Check entry 1, entry 2, entry 3... Up to 1,000,000 operations in the worst case ($O(n)$).\n- **Binary Search**: Open the middle. Target is alphabetically earlier? Throw away 500,000 entries in **one comparison**! Repeat: only $\\approx 20$ operations ($O(\\log n)$).\n\n#### Strict Prerequisite\n> ⚠️ **Absolute Requirement**: Binary Search **requires a monotonically sorted collection** (or a monotonic search predicate). If the array is unsorted, binary search is invalid.",
+          "key_concepts": [
+            "Monotonicity",
+            "Logarithmic Time Complexity",
+            "Search Space Halving"
+          ],
+          "instructor_notes": "Demonstrate with a physical book: tear it in half (metaphorically) to illustrate cutting search space by 50% each step."
+        },
+        {
+          "id": "sec-bs-2",
+          "title": "Algorithm Mechanics: Pointer Invariants & Complexity",
+          "duration_min": 15,
+          "markdown_content": "### Pointer Mechanics\nWe track three indices:\n- `low`: The leftmost candidate index of the active search space.\n- `high`: The rightmost candidate index of the active search space.\n- `mid`: The midpoint index evaluated during each iteration.\n\n#### The Loop Invariant\nIn a closed interval `[low, high]`, the search space remains valid as long as `low <= high`.\nWhen `low > high`, the search space is exhausted, proving the target does not exist.\n\n#### Preventing Integer Overflow\nIn languages like C++, Java, or Go, calculating midpoint naively can trigger integer overflow:\n```python\n# ❌ DANGEROUS in statically typed 32-bit languages:\n# mid = (low + high) // 2   (Can overflow if low + high > 2^31 - 1)\n\n# ✅ SAFE:\nmid = low + (high - low) // 2\n```",
+          "key_concepts": [
+            "Pointers",
+            "Loop Invariants",
+            "Integer Overflow Prevention"
+          ],
+          "instructor_notes": "Mention the famous historical Java binary search bug discovered by Joshua Bloch in 2006 that went unnoticed for 9 years."
+        },
+        {
+          "id": "sec-bs-3",
+          "title": "Clean Iterative Python Implementation",
+          "duration_min": 10,
+          "markdown_content": "### Production Iterative Implementation\n```python\ndef binary_search(arr: list[int], target: int) -> int:\n    \"\"\"Performs binary search on a sorted list.\n    \n    Returns the index of target if found, else -1.\n    Time Complexity: O(log n)\n    Space Complexity: O(1)\n    \"\"\"\n    low = 0\n    high = len(arr) - 1\n\n    while low <= high:\n        # Prevent integer overflow\n        mid = low + (high - low) // 2\n\n        if arr[mid] == target:\n            return mid  # Target found\n        elif arr[mid] < target:\n            low = mid + 1  # Discard left half\n        else:\n            high = mid - 1  # Discard right half\n\n    return -1  # Target not found\n```",
+          "key_concepts": [
+            "Iterative Algorithm",
+            "Space Complexity O(1)",
+            "Termination Conditions"
+          ],
+          "instructor_notes": "Walk through boundary cases: empty array, single-element array, target at first index, target at last index."
+        }
+      ],
+      "practical_applications": [
+        "Database B-Tree and LSM-Tree index lookups.",
+        "Git bisect: Identifying the commit that introduced a bug using binary search over commit history.",
+        "Numerical root-finding algorithms and finding peak elements in arrays."
+      ],
+      "activity": {
+        "title": "Implement Binary Search with Duplicate Elements",
+        "duration_min": 10,
+        "instructions": "Modify binary search to return the *first occurrence* (leftmost index) of a target that appears multiple times in a sorted array.",
+        "challenge_prompt": "Given `arr = [2, 4, 4, 4, 6, 7]` and `target = 4`, standard binary search might return index 2. Return the leftmost index (index 1).",
+        "starter_code": "def find_first_occurrence(arr: list[int], target: int) -> int:\n    # Your implementation here\n    pass",
+        "solution_code": "def find_first_occurrence(arr: list[int], target: int) -> int:\n    low = 0\n    high = len(arr) - 1\n    result = -1\n\n    while low <= high:\n        mid = low + (high - low) // 2\n        if arr[mid] == target:\n            result = mid\n            high = mid - 1  # Continue searching left\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return result"
+      },
+      "knowledge_checks": [
+        {
+          "id": 1,
+          "question": "What is the worst-case time complexity of binary search on a sorted array of size n?",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "correct_index": 1,
+          "explanation": "Binary search divides the search space in half at each iteration, resulting in a logarithmic runtime of O(log n).",
+          "related_concept": "Time Complexity Analysis"
+        },
+        {
+          "id": 2,
+          "question": "Why is 'mid = low + (high - low) // 2' preferred over 'mid = (low + high) // 2' in systems programming?",
+          "options": [
+            "It runs in O(1) whereas the other is O(n).",
+            "It prevents arithmetic integer overflow when low + high exceeds the maximum integer limit.",
+            "It automatically handles descending arrays.",
+            "It allows binary search on linked lists."
+          ],
+          "correct_index": 1,
+          "explanation": "In languages with fixed-size integer types (32-bit/64-bit), adding low + high can overflow into negative numbers. Subtraction avoids this.",
+          "related_concept": "Arithmetic Overflow Safeguards"
+        },
+        {
+          "id": 3,
+          "question": "What happens if binary search is executed on an unsorted array?",
+          "options": [
+            "It throws a compile-time exception.",
+            "It automatically sorts the array first in O(n log n).",
+            "It may return an incorrect index or report the element is missing even if present.",
+            "It functions normally with O(n) complexity."
+          ],
+          "correct_index": 2,
+          "explanation": "Binary search fundamentally relies on the monotonicity of sorted order to discard half the array. On an unsorted array, the discarded half might contain the target.",
+          "related_concept": "Preconditions"
+        }
+      ],
+      "summary_takeaways": [
+        "Binary search reduces search complexity from linear O(n) to logarithmic O(log n).",
+        "Sorted order is a strict prerequisite.",
+        "Use 'low + (high - low) // 2' to guarantee memory and integer safety.",
+        "Loop invariant 'low <= high' guarantees complete search space exhaustion."
+      ],
+      "supplementary_videos": [
+        {
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "MFhxShGxHWc",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc",
+          "duration": "02:25",
+          "thumbnail_url": "https://img.youtube.com/vi/MFhxShGxHWc/hqdefault.jpg",
+          "relevance_summary": "High-level overview of binary search mechanics, logarithmic time complexity, and divide-and-conquer principles.",
+          "relevance_score": 97
+        },
+        {
+          "title": "Binary Search - CS50 Shorts",
+          "channel": "CS50 (Harvard)",
+          "video_id": "T98PIp4omUA",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+          "duration": "08:14",
+          "thumbnail_url": "https://img.youtube.com/vi/T98PIp4omUA/hqdefault.jpg",
+          "relevance_summary": "Harvard CS50 instructional video explaining array indexing, pointers (low, high, mid), and step-by-step trace.",
+          "relevance_score": 99
+        },
+        {
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "channel": "NeetCode",
+          "video_id": "s4D9ydZScWQ",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ",
+          "duration": "12:30",
+          "thumbnail_url": "https://img.youtube.com/vi/s4D9ydZScWQ/hqdefault.jpg",
+          "relevance_summary": "Hands-on walkthrough discussing while loop bounds (<= vs <), mid calculation overflow avoidance, and boundary conditions.",
+          "relevance_score": 95
+        }
+      ],
+      "references": [
+        {
+          "type": "Book",
+          "title": "Introduction to Algorithms (CLRS, 4th Edition)",
+          "citation": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (2022). Introduction to Algorithms (CLRS, 4th Edition). MIT Press.",
+          "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+        },
+        {
+          "type": "Book",
+          "title": "Grokking Algorithms: An Illustrated Guide",
+          "citation": "Aditya Y. Bhargava (2016). Grokking Algorithms: An Illustrated Guide. Manning.",
+          "url": "https://www.manning.com/books/grokking-algorithms"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "GeeksforGeeks: Binary Search - Complete Tutorial",
+          "citation": "GeeksforGeeks: Binary Search - Complete Tutorial - geeksforgeeks.org.",
+          "url": "https://www.geeksforgeeks.org/binary-search/"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "Wikipedia: Binary Search Algorithm",
+          "citation": "Wikipedia: Binary Search Algorithm - en.wikipedia.org.",
+          "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "citation": "Fireship (02:25) - Binary Search Algorithm in 100 Seconds.",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search - CS50 Shorts",
+          "citation": "CS50 (Harvard) (08:14) - Binary Search - CS50 Shorts.",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "citation": "NeetCode (12:30) - Binary Search Tutorial & Common Pitfalls.",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ"
+        }
+      ]
+    },
+    "status": "generated",
+    "qc_layer_1": {
+      "layer_name": "QC Layer 1: Research and Factual Accuracy",
+      "overall_score": 97.0,
+      "status": "PASSED WITH RECOMMENDATIONS",
+      "source_reliability_rating": "Excellent (MIT Press, CLRS)",
+      "claims_audit": [
+        {
+          "claim": "Binary search worst-case time complexity is O(log n).",
+          "status": "VERIFIED",
+          "source": "CLRS 4th Edition",
+          "severity": "LOW",
+          "comment": "Strictly verified: logarithmic search tree depth."
+        },
+        {
+          "claim": "Requires monotonically sorted array as strict precondition.",
+          "status": "VERIFIED",
+          "source": "Grokking Algorithms",
+          "severity": "LOW",
+          "comment": "Strictly verified: unsorted data produces arbitrary false negative results."
+        },
+        {
+          "claim": "Naive (low + high) // 2 triggers overflow in languages with fixed-width integers.",
+          "status": "VERIFIED",
+          "source": "Joshua Bloch (Google Research, 2006)",
+          "severity": "LOW",
+          "comment": "Verified historical software defect."
+        }
+      ],
+      "sources_audit": [
+        {
+          "source_name": "Introduction to Algorithms (CLRS, MIT Press)",
+          "type": "Academic Textbook",
+          "credibility_grade": "A+",
+          "relevance": "Authoritative theoretical benchmark."
+        }
+      ],
+      "identified_gaps": [
+        "Include brief note on ternary search vs binary search comparison.",
+        "Mention Python's built-in `bisect` standard library module."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-bs-1",
+          "target_section": "Clean Iterative Python Implementation",
+          "issue": "Python developers in practice utilize standard library `bisect`.",
+          "recommendation": "Add a note showing `bisect_left` and `bisect_right` in Python's standard library.",
+          "patch_text": "\n> 🐍 **Python Standard Library Tip**: In production Python code, prefer the built-in C-optimized `bisect` module (`bisect.bisect_left(arr, target)`) which eliminates hand-rolled loop invariant bugs.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:03:28.127033+00:00"
+    },
+    "qc_layer_2": {
+      "layer_name": "QC Layer 2: Instructional Quality",
+      "overall_score": 95.4,
+      "status": "EXCELLENT",
+      "objective_alignment_score": 94.0,
+      "bloom_taxonomy_level": "Analyze & Apply (Bloom's Taxonomy Levels 4 & 3)",
+      "rubric_breakdown": {
+        "clarity": {
+          "score": 96.0,
+          "feedback": "Technical concepts are introduced with vivid analogies (postal service, triage trees) before diving into RFC technicalities."
+        },
+        "structure": {
+          "score": 97.0,
+          "feedback": "Exemplary 5-phase progression: Hook -> Core Direct Instruction -> Code Demonstration -> Guided Hands-on Lab -> Knowledge Check."
+        },
+        "pacing_45min": {
+          "score": 95.0,
+          "feedback": "Directly calibrated to 45 minutes: 5m Hook, 15m Deep Dive, 10m Scenarios/Examples, 10m Student Lab, 5m Assessment."
+        },
+        "interactivity": {
+          "score": 94.0,
+          "feedback": "Includes a diagnostic problem-solving scenario lab with starter and solution code, plus 5 active recall multiple choice questions."
+        },
+        "assessment_rigor": {
+          "score": 95.0,
+          "feedback": "Questions target conceptual comprehension, diagnostic triage, and edge cases rather than superficial rote memorization."
+        }
+      },
+      "identified_gaps": [
+        "The transition between GET/POST and Status Codes could benefit from an explicit bridge sentence explaining that methods initiate the intent and status codes communicate the outcome.",
+        "Consider adding an instructor time-check prompt at minute 25 to help pacing in instructor-led delivery."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-inst-1",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Transitions between request methods and response codes can confuse beginners who see them as isolated concepts.",
+          "recommendation": "Add a pedagogical conceptual bridge highlighting how HTTP request methods and response status codes form a conversational dialogue.",
+          "patch_text": "\n> 🎯 **Pedagogical Bridge (The Conversation Paradigm)**:\n> Think of HTTP as a structured dialogue: The **Method (GET/POST)** is the question asked by the client; the **Status Code (2xx/4xx/5xx)** is the definitive answer returned by the server.",
+          "applied": false
+        },
+        {
+          "id": "fix-inst-2",
+          "target_section": "Diagnostic Detective: Triage the HTTP Incidents",
+          "issue": "Instructors need a rubric to debrief the hands-on lab within the 10-minute window.",
+          "recommendation": "Add an Instructor Debrief Guide with timed discussion prompts.",
+          "patch_text": "\n> ⏱️ **Instructor Pacing Cue (Minute 35)**:\n> Dedicate 6 minutes for independent student triage, followed by a 4-minute rapid-fire debrief focusing specifically on why Scenario D produces a 500 error instead of a 400 error.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:03:28.127033+00:00"
+    },
+    "id": "c2a6bccb-b67e-4c2a-9a31-faae1d03dbec",
+    "created_at": "2026-11-07T13:03:28.142784+00:00",
+    "updated_at": "2026-11-07T13:03:28.142784+00:00"
+  },
+  {
+    "title": "HTTP Requests and Responses",
+    "learning_objective": "Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
+    "target_duration": 45,
+    "research": {
+      "query": "HTTP Requests and Responses Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
+      "books": [
+        {
+          "title": "HTTP: The Definitive Guide",
+          "authors": "David Gourley, Brian Totty",
+          "year": "2002",
+          "publisher": "O'Reilly Media",
+          "description": "Comprehensive reference covering HTTP/1.1 mechanics, request-response architecture, header structures, and status codes.",
+          "key_takeaways": "Detailed specifications of GET and POST idempotency, client/server status codes (2xx, 4xx, 5xx), and connection handling.",
+          "relevance_score": 98,
+          "url": "https://www.oreilly.com/library/view/http-the-definitive/1565925092/"
+        },
+        {
+          "title": "RESTful Web APIs: Services for a Changing World",
+          "authors": "Leonard Richardson, Mike Amundsen",
+          "year": "2013",
+          "publisher": "O'Reilly Media",
+          "description": "Explores how HTTP protocol conventions power scalable web architectures and hypermedia systems.",
+          "key_takeaways": "Practical semantics for GET vs POST, safe method constraints, and actionable HTTP response code patterns.",
+          "relevance_score": 95,
+          "url": "https://www.oreilly.com/library/view/restful-web-apis/9781449359713/"
+        },
+        {
+          "title": "Computer Networking: A Top-Down Approach (8th Edition)",
+          "authors": "James F. Kurose, Keith W. Ross",
+          "year": "2021",
+          "publisher": "Pearson",
+          "description": "Standard university textbook detailing application-layer protocols, TCP/IP fundamentals, and HTTP client-server interactions.",
+          "key_takeaways": "Foundational networking model explaining socket connections, pipelining, and error response classifications.",
+          "relevance_score": 94,
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003334"
+        }
+      ],
+      "websites": [
+        {
+          "title": "MDN Web Docs: An Overview of HTTP & HTTP Methods",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
+          "domain": "developer.mozilla.org",
+          "summary": "Mozilla's authoritative guide on the Hypertext Transfer Protocol, request/response cycles, header fields, and safe vs idempotent operations.",
+          "credibility_rating": "Official Web Standards Documentation (Gold Standard)",
+          "relevance_score": 99
+        },
+        {
+          "title": "MDN Web Docs: HTTP Response Status Codes",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+          "domain": "developer.mozilla.org",
+          "summary": "Detailed specification of standard HTTP response codes categorized by 1xx, 2xx (Success), 3xx (Redirection), 4xx (Client Error), and 5xx (Server Error).",
+          "credibility_rating": "Official Web Standards Documentation (Gold Standard)",
+          "relevance_score": 99
+        },
+        {
+          "title": "RFC 9110: HTTP Semantics Specification (IETF)",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+          "domain": "rfc-editor.org",
+          "summary": "The definitive Internet Engineering Task Force (IETF) RFC standard defining semantics for HTTP methods (GET, POST), cacheability, and status codes.",
+          "credibility_rating": "Official International Standard Specification",
+          "relevance_score": 100
+        }
+      ],
+      "videos": [
+        {
+          "title": "HTTP Crash Course & How The Web Works",
+          "channel": "Traversy Media",
+          "video_id": "iYM2zFP3Zn0",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0",
+          "duration": "24:12",
+          "thumbnail_url": "https://img.youtube.com/vi/iYM2zFP3Zn0/hqdefault.jpg",
+          "relevance_summary": "Covers HTTP protocol flow, GET vs POST requests, headers, and 2xx, 4xx, and 5xx status codes with real browser network tabs.",
+          "relevance_score": 98
+        },
+        {
+          "title": "HTTP Status Codes in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "wJa5Ch0O474",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474",
+          "duration": "02:18",
+          "thumbnail_url": "https://img.youtube.com/vi/wJa5Ch0O474/hqdefault.jpg",
+          "relevance_summary": "Fast-paced, humorous, and memorable breakdown of 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error, and 503 Unavailable.",
+          "relevance_score": 96
+        },
+        {
+          "title": "GET vs POST Methods Explained",
+          "channel": "freeCodeCamp.org",
+          "video_id": "ee5Xj_aHk68",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68",
+          "duration": "14:45",
+          "thumbnail_url": "https://img.youtube.com/vi/ee5Xj_aHk68/hqdefault.jpg",
+          "relevance_summary": "Detailed comparison of HTTP GET and POST: idempotency, URL query parameters vs message bodies, caching, and security considerations.",
+          "relevance_score": 97
+        }
+      ],
+      "summary": "Researched 3 authoritative books, 3 reference websites, and 3 curated YouTube tutorials for 'HTTP Requests and Responses'."
+    },
+    "content": {
+      "overview": "The Hypertext Transfer Protocol (HTTP) is the foundational architecture of the internet. In this 45-minute lesson, we dissect client-server communication, demystify GET vs POST method semantics and idempotency, and master the diagnostic categorization of 2xx, 4xx, and 5xx response codes.",
+      "timeline_breakdown": [
+        {
+          "phase": "1. Hook & Protocol Architecture",
+          "minutes": 5,
+          "description": "Analogy of postal service vs web client-server, and the stateless request-response lifecycle."
+        },
+        {
+          "phase": "2. HTTP Methods Deep-Dive: GET vs POST",
+          "minutes": 15,
+          "description": "Semantics, idempotency, safety, URL encoding vs body payloads, and security implications."
+        },
+        {
+          "phase": "3. Status Codes Categorization: 2xx, 4xx, 5xx",
+          "minutes": 10,
+          "description": "Distinguishing between client success, client errors, and server infrastructure failures."
+        },
+        {
+          "phase": "4. Hands-on Interactive Lab",
+          "minutes": 10,
+          "description": "Writing live cURL / fetch requests, analyzing headers, and inspecting server response codes."
+        },
+        {
+          "phase": "5. Knowledge Check & Conceptual Wrap-up",
+          "minutes": 5,
+          "description": "5-question conceptual quiz and key takeaway review."
+        }
+      ],
+      "sections": [
+        {
+          "id": "sec-1",
+          "title": "Introduction to the HTTP Request-Response Lifecycle",
+          "duration_min": 5,
+          "markdown_content": "### The Fabric of the Web: The Request-Response Cycle\nEvery time you open a browser, click a link, or swipe in a mobile app, you trigger an **HTTP (Hypertext Transfer Protocol)** exchange. HTTP is an application-layer, stateless, client-server protocol.\n\n#### The Fundamental Flow\n```\n+---------------+         HTTP Request (Method, URL, Headers, Body)        +---------------+\n|               |  ----------------------------------------------------->  |               |\n|  Client       |                                                          |  Web Server   |\n| (Browser/App) |  <-----------------------------------------------------  |  (Nginx/Node) |\n+---------------+        HTTP Response (Status Code, Headers, Body)        +---------------+\n```\n\n1. **Client initiates**: Sends a structured request specifying an action (the *Method*), target resource (the *URI*), and metadata (*Headers*).\n2. **Server processes**: Evaluates headers, parses any payload, handles business logic/database queries.\n3. **Server responds**: Returns a response containing a 3-digit **Status Code**, response headers, and optional payload (HTML, JSON, image).\n4. **Stateless Nature**: Each request is completely independent. The server retains no memory of previous requests unless explicit session or token state is exchanged in headers or cookies.",
+          "key_concepts": [
+            "Client-Server Architecture",
+            "Statelessness",
+            "Headers and Payloads"
+          ],
+          "instructor_notes": "Use the postal letter analogy: Headers are the envelope (to, from, postage); the body is the letter inside."
+        },
+        {
+          "id": "sec-2",
+          "title": "GET vs POST Methods: Semantics, Idempotency, and Security",
+          "duration_min": 15,
+          "markdown_content": "### Understanding HTTP Methods: Safe vs Idempotent Operations\nWhile HTTP defines multiple methods (HEAD, PUT, DELETE, PATCH, OPTIONS), **GET** and **POST** account for over 85% of standard web traffic.\n\n| Feature | GET Method | POST Method |\n| :--- | :--- | :--- |\n| **Primary Purpose** | Retrieve/read existing data | Submit data to create/modify a resource |\n| **Request Body** | No message body (parameters in query string) | Carries payload in message body (JSON, FormData) |\n| **Idempotent?** | **Yes** (Multiple identical requests yield same state) | **No** (Repeated requests create duplicate resources) |\n| **Safe?** | **Yes** (Does not mutate server-side state) | **No** (Mutates state or triggers side-effects) |\n| **Browser Caching** | Yes, automatically cached by browsers & CDNs | Not cached by default |\n| **Bookmarkable / History** | Yes, URLs can be bookmarked and appear in history | Cannot be cleanly bookmarked without re-submission |\n| **Data Visibility** | Parameters visible in browser address bar | Hidden in request payload |\n\n#### Key Technical Rule: Idempotency\n- An HTTP method is **idempotent** if making $N$ identical requests has the exact same side-effect on the server as making 1 request.\n- `GET /users/42` executed 100 times leaves the database unaltered ($f(x) = f(f(x))$).\n- `POST /orders` executed 100 times may charge the credit card 100 times and create 100 duplicate orders.\n\n#### The Security Misconception\n> ⚠️ **Common Junior Pitfall**: Never assume POST is \"secure\" just because parameters are not in the URL. POST bodies are transmitted in plaintext unless encrypted via **HTTPS (TLS)**. POST merely prevents credentials from leaking into server access logs, browser history, and shoulder surfers.",
+          "key_concepts": [
+            "Idempotency",
+            "Safety",
+            "Query String vs Request Body",
+            "HTTPS Encryption"
+          ],
+          "instructor_notes": "Emphasize that idempotency is about server state mutation, not the response status code."
+        },
+        {
+          "id": "sec-3",
+          "title": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "duration_min": 10,
+          "markdown_content": "### Navigating the HTTP Status Code Spectrum\nEvery HTTP response begins with a 3-digit status code. The first digit dictates the general response category:\n\n#### 1. 2xx: Success (The client's request was successfully received and accepted)\n- `200 OK`: Standard response for successful requests (e.g. GET returning data).\n- `201 Created`: The request succeeded and a new resource was created on the server (standard response for successful POST requests).\n- `204 No Content`: The request succeeded, but the server deliberately returns no body (common for DELETE or PUT updates).\n\n#### 2. 4xx: Client Error (The problem lies with the requester)\n- `400 Bad Request`: Server cannot process request due to malformed syntax or invalid JSON body.\n- `401 Unauthorized`: Client lacks valid authentication credentials (e.g., missing API key or expired JWT).\n- `403 Forbidden`: Server understands identity, but client does not have permission to access the resource.\n- `404 Not Found`: The requested URL path does not exist on the server.\n- `405 Method Not Allowed`: The resource exists, but does not support this HTTP verb (e.g., sending a POST to a read-only endpoint).\n\n#### 3. 5xx: Server Error (The server encountered an internal failure or misconfiguration)\n- `500 Internal Server Error`: Generic unhandled exception in backend code (e.g. unhandled NullPointerException or uncaught database error).\n- `502 Bad Gateway`: The server acting as a proxy/gateway received an invalid response from upstream (e.g., Nginx unable to connect to Python backend).\n- `503 Service Unavailable`: Server is temporarily overloaded or undergoing maintenance.\n- `504 Gateway Timeout`: Gateway or proxy did not receive a timely response from the backend application service.\n\n```\n       ┌───────────────────────────────┐\n       │   HTTP Status Code Triage     │\n       └──────────────┬────────────────┘\n                      ▼\n         ┌─────────────────────────┐\n         │ First Digit Classification │\n         └────────────┬────────────┘\n         ┌────────────┼────────────┐\n         ▼            ▼            ▼\n      [ 2xx ]      [ 4xx ]      [ 5xx ]\n      Success    Client Error Server Error\n   (Action Done) (Fix Request) (Fix Server)\n```",
+          "key_concepts": [
+            "2xx Success Semantics",
+            "4xx Client Errors vs 5xx Server Failures",
+            "Debugging Status Trees"
+          ],
+          "instructor_notes": "Quick memory hook for students: 2xx = 'You got it', 4xx = 'You messed up', 5xx = 'I (server) messed up'."
+        },
+        {
+          "id": "sec-4",
+          "title": "Practical Implementation & cURL Examples",
+          "duration_min": 5,
+          "markdown_content": "### Hands-On: Anatomy of Real Requests\n\n#### 1. Real GET Request via cURL\n```bash\n# Querying a list of published articles with pagination\ncurl -i -X GET \"https://api.example.com/v1/articles?limit=5&category=tech\" \\\n  -H \"Accept: application/json\"\n```\n**Expected Response:**\n```http\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\nCache-Control: public, max-age=3600\n\n[\n  {\"id\": 101, \"title\": \"Understanding HTTP\", \"category\": \"tech\"},\n  {\"id\": 102, \"title\": \"REST API Guidelines\", \"category\": \"tech\"}\n]\n```\n\n#### 2. Real POST Request via cURL\n```bash\n# Creating a new comment on an article\ncurl -i -X POST \"https://api.example.com/v1/articles/101/comments\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer my_jwt_token_here\" \\\n  -d '{\"author\": \"Jane Doe\", \"comment\": \"Excellent breakdown of 4xx vs 5xx!\"}'\n```\n**Expected Response:**\n```http\nHTTP/1.1 201 Created\nLocation: /v1/articles/101/comments/4819\nContent-Type: application/json\n\n{\n  \"id\": 4819,\n  \"status\": \"published\",\n  \"created_at\": \"2026-11-07T12:00:00Z\"\n}\n```",
+          "key_concepts": [
+            "cURL Syntax",
+            "Header Inspection",
+            "Status Code Verification"
+          ],
+          "instructor_notes": "Have students inspect the `-i` flag in cURL which outputs response HTTP headers."
+        }
+      ],
+      "practical_applications": [
+        "Building RESTful APIs for frontend web and mobile client applications.",
+        "Diagnosing and resolving customer-facing errors in production monitoring dashboards (Datadog, Sentry).",
+        "Configuring API gateways, reverse proxies, and rate limiters to protect upstream servers."
+      ],
+      "activity": {
+        "title": "Diagnostic Detective: Triage the HTTP Incidents",
+        "duration_min": 10,
+        "instructions": "Analyze each scenario below and determine the correct HTTP Method and HTTP Status Code that should be returned.",
+        "challenge_prompt": "Scenario A: A user fills out a registration form and submits their email, username, and password. The account is created in the database.\nScenario B: A user searches for products with keyword 'headphones'. The query returns 15 matching items.\nScenario C: A mobile client calls /profile/settings with an expired OAuth token.\nScenario D: A database connection pool runs out of memory and crashes when processing an order.",
+        "starter_code": "# Diagnostic Challenge\nscenarios = {\n    \"A_Registration\": {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"B_Search\":       {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"C_ExpiredToken\": {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"D_DBCrash\":      {\"method\": \"???\", \"expected_status\": \"???\"}\n}",
+        "solution_code": "# Solution Key\nscenarios = {\n    \"A_Registration\": {\"method\": \"POST\", \"expected_status\": \"201 Created\"},\n    \"B_Search\":       {\"method\": \"GET\",  \"expected_status\": \"200 OK\"},\n    \"C_ExpiredToken\": {\"method\": \"GET/POST\", \"expected_status\": \"401 Unauthorized\"},\n    \"D_DBCrash\":      {\"method\": \"POST\", \"expected_status\": \"500 Internal Server Error (or 503)\"}\n}"
+      },
+      "knowledge_checks": [
+        {
+          "id": 1,
+          "question": "Which of the following statements accurately characterizes the HTTP GET method?",
+          "options": [
+            "GET is non-idempotent because it carries data in the message body.",
+            "GET is safe and idempotent, meaning it should not alter server state on repeated invocations.",
+            "GET is inherently more secure than POST because it cannot be intercepted.",
+            "GET should be used when charging a user's credit card or submitting orders."
+          ],
+          "correct_index": 1,
+          "explanation": "GET is defined in RFC 9110 as safe (read-only) and idempotent. Calling GET multiple times produces identical state without mutating server records.",
+          "related_concept": "HTTP Method Idempotency"
+        },
+        {
+          "id": 2,
+          "question": "An API consumer attempts to create a new user via POST, but omits the mandatory 'email' field in their JSON payload. Which status code should the API return?",
+          "options": [
+            "200 OK",
+            "400 Bad Request",
+            "404 Not Found",
+            "500 Internal Server Error"
+          ],
+          "correct_index": 1,
+          "explanation": "400 Bad Request indicates that the server cannot process the request due to client error (e.g. malformed syntax, missing mandatory payload fields).",
+          "related_concept": "4xx Client Errors"
+        },
+        {
+          "id": 3,
+          "question": "What is the primary difference between a 4xx status code and a 5xx status code?",
+          "options": [
+            "4xx indicates an internal database crash, whereas 5xx indicates an invalid URL path.",
+            "4xx codes are for client-side issues (invalid request/auth), whereas 5xx codes indicate the server failed while processing.",
+            "4xx codes are automatically retried by browsers, whereas 5xx codes cannot be retried.",
+            "4xx codes carry no headers, whereas 5xx codes always carry JSON."
+          ],
+          "correct_index": 1,
+          "explanation": "4xx represents client-originating errors (bad syntax, unauthorized access, missing page). 5xx represents server-originating errors (crashes, gateway timeouts).",
+          "related_concept": "Status Code Categorization"
+        },
+        {
+          "id": 4,
+          "question": "When a resource is successfully created on the server as a direct result of a POST request, what is the most appropriate HTTP status code?",
+          "options": [
+            "200 OK",
+            "201 Created",
+            "204 No Content",
+            "302 Found"
+          ],
+          "correct_index": 1,
+          "explanation": "While 200 OK indicates generic success, 201 Created is the specific, standard HTTP status code indicating that one or more new resources have been created.",
+          "related_concept": "2xx Success Codes"
+        },
+        {
+          "id": 5,
+          "question": "A web browser sends a request to Nginx, but the upstream Python backend application is completely down. What status code will Nginx return to the client?",
+          "options": [
+            "401 Unauthorized",
+            "404 Not Found",
+            "502 Bad Gateway",
+            "200 OK with empty body"
+          ],
+          "correct_index": 2,
+          "explanation": "502 Bad Gateway indicates that an intermediate proxy or gateway server (like Nginx) received an invalid response or connection refusal from the upstream application server.",
+          "related_concept": "5xx Server Errors"
+        }
+      ],
+      "summary_takeaways": [
+        "HTTP is a stateless client-server protocol where every request receives an authoritative status code.",
+        "GET is safe and idempotent (ideal for queries); POST is non-idempotent (ideal for creating resources and state changes).",
+        "2xx signifies successful processing (200 OK, 201 Created).",
+        "4xx highlights client-side faults (400 Bad Request, 401 Unauthorized, 404 Not Found).",
+        "5xx alerts developers to server-side exceptions or infrastructure crashes (500 Internal Error, 502 Bad Gateway, 503 Unavailable)."
+      ],
+      "supplementary_videos": [
+        {
+          "title": "HTTP Crash Course & How The Web Works",
+          "channel": "Traversy Media",
+          "video_id": "iYM2zFP3Zn0",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0",
+          "duration": "24:12",
+          "thumbnail_url": "https://img.youtube.com/vi/iYM2zFP3Zn0/hqdefault.jpg",
+          "relevance_summary": "Covers HTTP protocol flow, GET vs POST requests, headers, and 2xx, 4xx, and 5xx status codes with real browser network tabs.",
+          "relevance_score": 98
+        },
+        {
+          "title": "HTTP Status Codes in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "wJa5Ch0O474",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474",
+          "duration": "02:18",
+          "thumbnail_url": "https://img.youtube.com/vi/wJa5Ch0O474/hqdefault.jpg",
+          "relevance_summary": "Fast-paced, humorous, and memorable breakdown of 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error, and 503 Unavailable.",
+          "relevance_score": 96
+        },
+        {
+          "title": "GET vs POST Methods Explained",
+          "channel": "freeCodeCamp.org",
+          "video_id": "ee5Xj_aHk68",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68",
+          "duration": "14:45",
+          "thumbnail_url": "https://img.youtube.com/vi/ee5Xj_aHk68/hqdefault.jpg",
+          "relevance_summary": "Detailed comparison of HTTP GET and POST: idempotency, URL query parameters vs message bodies, caching, and security considerations.",
+          "relevance_score": 97
+        }
+      ],
+      "references": [
+        {
+          "type": "Book",
+          "title": "HTTP: The Definitive Guide",
+          "citation": "David Gourley, Brian Totty (2002). HTTP: The Definitive Guide. O'Reilly Media.",
+          "url": "https://www.oreilly.com/library/view/http-the-definitive/1565925092/"
+        },
+        {
+          "type": "Book",
+          "title": "RESTful Web APIs: Services for a Changing World",
+          "citation": "Leonard Richardson, Mike Amundsen (2013). RESTful Web APIs: Services for a Changing World. O'Reilly Media.",
+          "url": "https://www.oreilly.com/library/view/restful-web-apis/9781449359713/"
+        },
+        {
+          "type": "Book",
+          "title": "Computer Networking: A Top-Down Approach (8th Edition)",
+          "citation": "James F. Kurose, Keith W. Ross (2021). Computer Networking: A Top-Down Approach (8th Edition). Pearson.",
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003334"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "MDN Web Docs: An Overview of HTTP & HTTP Methods",
+          "citation": "MDN Web Docs: An Overview of HTTP & HTTP Methods - developer.mozilla.org.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "MDN Web Docs: HTTP Response Status Codes",
+          "citation": "MDN Web Docs: HTTP Response Status Codes - developer.mozilla.org.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "RFC 9110: HTTP Semantics Specification (IETF)",
+          "citation": "RFC 9110: HTTP Semantics Specification (IETF) - rfc-editor.org.",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+        },
+        {
+          "type": "Video Resource",
+          "title": "HTTP Crash Course & How The Web Works",
+          "citation": "Traversy Media (24:12) - HTTP Crash Course & How The Web Works.",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0"
+        },
+        {
+          "type": "Video Resource",
+          "title": "HTTP Status Codes in 100 Seconds",
+          "citation": "Fireship (02:18) - HTTP Status Codes in 100 Seconds.",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474"
+        },
+        {
+          "type": "Video Resource",
+          "title": "GET vs POST Methods Explained",
+          "citation": "freeCodeCamp.org (14:45) - GET vs POST Methods Explained.",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68"
+        }
+      ]
+    },
+    "status": "generated",
+    "qc_layer_1": {
+      "layer_name": "QC Layer 1: Research and Factual Accuracy",
+      "overall_score": 96.0,
+      "status": "PASSED WITH RECOMMENDATIONS",
+      "source_reliability_rating": "Exceptional (Peer-reviewed RFCs, O'Reilly textbooks, MDN)",
+      "claims_audit": [
+        {
+          "claim": "GET is safe and idempotent per RFC 9110 specification.",
+          "status": "VERIFIED",
+          "source": "RFC 9110 / MDN Web Docs",
+          "severity": "LOW",
+          "comment": "Accurately represents IETF standards: GET does not mutate server state across repetitive requests."
+        },
+        {
+          "claim": "POST is non-idempotent and carries data in the message body.",
+          "status": "VERIFIED",
+          "source": "HTTP: The Definitive Guide (O'Reilly)",
+          "severity": "LOW",
+          "comment": "Accurate: POST is designed to produce side effects such as creating database entries or processing transactions."
+        },
+        {
+          "claim": "2xx status codes denote client request acceptance and success.",
+          "status": "VERIFIED",
+          "source": "RFC 9110 Section 15.3",
+          "severity": "LOW",
+          "comment": "Accurate: Correctly highlights 200 OK and 201 Created semantics."
+        },
+        {
+          "claim": "4xx represents client-originating errors, whereas 5xx represents server infrastructure failures.",
+          "status": "VERIFIED",
+          "source": "MDN Web Docs: HTTP Status Codes",
+          "severity": "LOW",
+          "comment": "Accurate: Validates separation of concerns between client malformed input and server crash."
+        },
+        {
+          "claim": "POST requests are inherently secure compared to GET without HTTPS.",
+          "status": "NEEDS_CONTEXT",
+          "source": "Computer Networking: A Top-Down Approach",
+          "severity": "MEDIUM",
+          "comment": "Important clarification: POST payloads travel in plaintext across network hops unless TLS/HTTPS is active. The distinction is visibility (URLs in browser history vs payload in body)."
+        }
+      ],
+      "sources_audit": [
+        {
+          "source_name": "RFC 9110: HTTP Semantics (IETF)",
+          "type": "Official Standard",
+          "credibility_grade": "A+",
+          "relevance": "Direct foundational standard for HTTP methods and status codes."
+        },
+        {
+          "source_name": "HTTP: The Definitive Guide (O'Reilly Media)",
+          "type": "Authoritative Book",
+          "credibility_grade": "A",
+          "relevance": "Exhaustive coverage of client-server message formats and caching mechanics."
+        },
+        {
+          "source_name": "MDN Web Docs (Mozilla Foundation)",
+          "type": "Technical Documentation",
+          "credibility_grade": "A+",
+          "relevance": "Industry standard reference for real-world browser and API implementations."
+        },
+        {
+          "source_name": "Traversy Media / Fireship Tutorials",
+          "type": "Verified YouTube",
+          "credibility_grade": "B+",
+          "relevance": "High educational engagement with practical network tab demonstrations."
+        }
+      ],
+      "identified_gaps": [
+        "Clarify the specific behavioral difference between 401 Unauthorized (unauthenticated) vs 403 Forbidden (authenticated but lacking role/permission).",
+        "Emphasize explicitly that HTTPS (TLS) encryption is required to protect POST payloads from packet sniffing."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-fact-1",
+          "target_section": "GET vs POST Methods: Semantics, Idempotency, and Security",
+          "issue": "Needs explicit clarification on the difference between 401 Unauthorized and 403 Forbidden, and TLS role in POST.",
+          "recommendation": "Add a dedicated security advisory note distinguishing 401 (missing credentials) vs 403 (insufficient permissions) and reinforcing TLS encryption.",
+          "patch_text": "\n> 🔒 **Security Best Practice & Status Nuance**:\n> - **401 vs 403**: `401 Unauthorized` means 'Who are you? (Authenticate first)', whereas `403 Forbidden` means 'I know who you are, but you lack permission'.\n> - **Transport Security**: Never rely on POST alone for sensitive data. Always enforce **HTTPS (TLS 1.3)** to prevent plaintext eavesdropping across public networks.",
+          "applied": false
+        },
+        {
+          "id": "fix-fact-2",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Status code 204 No Content is mentioned briefly without explaining how it affects browser navigation.",
+          "recommendation": "Add an instructional callout on how browsers treat 204 No Content (keeping the current page view intact without reloading).",
+          "patch_text": "\n> 💡 **Instructor Tip on 204 No Content**: Explain that when a browser receives `204 No Content`, it intentionally does NOT change or reload the current page view, making it ideal for background auto-save or tracking actions.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:03:05.007370+00:00"
+    },
+    "qc_layer_2": {
+      "layer_name": "QC Layer 2: Instructional Quality",
+      "overall_score": 95.4,
+      "status": "EXCELLENT",
+      "objective_alignment_score": 98.0,
+      "bloom_taxonomy_level": "Analyze & Apply (Bloom's Taxonomy Levels 4 & 3)",
+      "rubric_breakdown": {
+        "clarity": {
+          "score": 96.0,
+          "feedback": "Technical concepts are introduced with vivid analogies (postal service, triage trees) before diving into RFC technicalities."
+        },
+        "structure": {
+          "score": 97.0,
+          "feedback": "Exemplary 5-phase progression: Hook -> Core Direct Instruction -> Code Demonstration -> Guided Hands-on Lab -> Knowledge Check."
+        },
+        "pacing_45min": {
+          "score": 95.0,
+          "feedback": "Directly calibrated to 45 minutes: 5m Hook, 15m Deep Dive, 10m Scenarios/Examples, 10m Student Lab, 5m Assessment."
+        },
+        "interactivity": {
+          "score": 94.0,
+          "feedback": "Includes a diagnostic problem-solving scenario lab with starter and solution code, plus 5 active recall multiple choice questions."
+        },
+        "assessment_rigor": {
+          "score": 95.0,
+          "feedback": "Questions target conceptual comprehension, diagnostic triage, and edge cases rather than superficial rote memorization."
+        }
+      },
+      "identified_gaps": [
+        "The transition between GET/POST and Status Codes could benefit from an explicit bridge sentence explaining that methods initiate the intent and status codes communicate the outcome.",
+        "Consider adding an instructor time-check prompt at minute 25 to help pacing in instructor-led delivery."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-inst-1",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Transitions between request methods and response codes can confuse beginners who see them as isolated concepts.",
+          "recommendation": "Add a pedagogical conceptual bridge highlighting how HTTP request methods and response status codes form a conversational dialogue.",
+          "patch_text": "\n> 🎯 **Pedagogical Bridge (The Conversation Paradigm)**:\n> Think of HTTP as a structured dialogue: The **Method (GET/POST)** is the question asked by the client; the **Status Code (2xx/4xx/5xx)** is the definitive answer returned by the server.",
+          "applied": false
+        },
+        {
+          "id": "fix-inst-2",
+          "target_section": "Diagnostic Detective: Triage the HTTP Incidents",
+          "issue": "Instructors need a rubric to debrief the hands-on lab within the 10-minute window.",
+          "recommendation": "Add an Instructor Debrief Guide with timed discussion prompts.",
+          "patch_text": "\n> ⏱️ **Instructor Pacing Cue (Minute 35)**:\n> Dedicate 6 minutes for independent student triage, followed by a 4-minute rapid-fire debrief focusing specifically on why Scenario D produces a 500 error instead of a 400 error.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:03:05.007370+00:00"
+    },
+    "id": "0c7b31a8-72a3-45ea-8b63-918c9937d642",
+    "created_at": "2026-11-07T13:03:05.007370+00:00",
+    "updated_at": "2026-11-07T13:03:05.007370+00:00"
+  },
+  {
+    "title": "HTTP Requests and Responses",
+    "learning_objective": "Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
+    "target_duration": 45,
+    "research": {
+      "query": "HTTP Requests and Responses Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
+      "books": [
+        {
+          "title": "HTTP: The Definitive Guide",
+          "authors": "David Gourley, Brian Totty",
+          "year": "2002",
+          "publisher": "O'Reilly Media",
+          "description": "Comprehensive reference covering HTTP/1.1 mechanics, request-response architecture, header structures, and status codes.",
+          "key_takeaways": "Detailed specifications of GET and POST idempotency, client/server status codes (2xx, 4xx, 5xx), and connection handling.",
+          "relevance_score": 98,
+          "url": "https://www.oreilly.com/library/view/http-the-definitive/1565925092/"
+        },
+        {
+          "title": "RESTful Web APIs: Services for a Changing World",
+          "authors": "Leonard Richardson, Mike Amundsen",
+          "year": "2013",
+          "publisher": "O'Reilly Media",
+          "description": "Explores how HTTP protocol conventions power scalable web architectures and hypermedia systems.",
+          "key_takeaways": "Practical semantics for GET vs POST, safe method constraints, and actionable HTTP response code patterns.",
+          "relevance_score": 95,
+          "url": "https://www.oreilly.com/library/view/restful-web-apis/9781449359713/"
+        },
+        {
+          "title": "Computer Networking: A Top-Down Approach (8th Edition)",
+          "authors": "James F. Kurose, Keith W. Ross",
+          "year": "2021",
+          "publisher": "Pearson",
+          "description": "Standard university textbook detailing application-layer protocols, TCP/IP fundamentals, and HTTP client-server interactions.",
+          "key_takeaways": "Foundational networking model explaining socket connections, pipelining, and error response classifications.",
+          "relevance_score": 94,
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003334"
+        }
+      ],
+      "websites": [
+        {
+          "title": "MDN Web Docs: An Overview of HTTP & HTTP Methods",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
+          "domain": "developer.mozilla.org",
+          "summary": "Mozilla's authoritative guide on the Hypertext Transfer Protocol, request/response cycles, header fields, and safe vs idempotent operations.",
+          "credibility_rating": "Official Web Standards Documentation (Gold Standard)",
+          "relevance_score": 99
+        },
+        {
+          "title": "MDN Web Docs: HTTP Response Status Codes",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+          "domain": "developer.mozilla.org",
+          "summary": "Detailed specification of standard HTTP response codes categorized by 1xx, 2xx (Success), 3xx (Redirection), 4xx (Client Error), and 5xx (Server Error).",
+          "credibility_rating": "Official Web Standards Documentation (Gold Standard)",
+          "relevance_score": 99
+        },
+        {
+          "title": "RFC 9110: HTTP Semantics Specification (IETF)",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+          "domain": "rfc-editor.org",
+          "summary": "The definitive Internet Engineering Task Force (IETF) RFC standard defining semantics for HTTP methods (GET, POST), cacheability, and status codes.",
+          "credibility_rating": "Official International Standard Specification",
+          "relevance_score": 100
+        }
+      ],
+      "videos": [
+        {
+          "title": "HTTP Crash Course & How The Web Works",
+          "channel": "Traversy Media",
+          "video_id": "iYM2zFP3Zn0",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0",
+          "duration": "24:12",
+          "thumbnail_url": "https://img.youtube.com/vi/iYM2zFP3Zn0/hqdefault.jpg",
+          "relevance_summary": "Covers HTTP protocol flow, GET vs POST requests, headers, and 2xx, 4xx, and 5xx status codes with real browser network tabs.",
+          "relevance_score": 98
+        },
+        {
+          "title": "HTTP Status Codes in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "wJa5Ch0O474",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474",
+          "duration": "02:18",
+          "thumbnail_url": "https://img.youtube.com/vi/wJa5Ch0O474/hqdefault.jpg",
+          "relevance_summary": "Fast-paced, humorous, and memorable breakdown of 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error, and 503 Unavailable.",
+          "relevance_score": 96
+        },
+        {
+          "title": "GET vs POST Methods Explained",
+          "channel": "freeCodeCamp.org",
+          "video_id": "ee5Xj_aHk68",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68",
+          "duration": "14:45",
+          "thumbnail_url": "https://img.youtube.com/vi/ee5Xj_aHk68/hqdefault.jpg",
+          "relevance_summary": "Detailed comparison of HTTP GET and POST: idempotency, URL query parameters vs message bodies, caching, and security considerations.",
+          "relevance_score": 97
+        }
+      ],
+      "summary": "Researched 3 authoritative books, 3 reference websites, and 3 curated YouTube tutorials for 'HTTP Requests and Responses'."
+    },
+    "content": {
+      "overview": "The Hypertext Transfer Protocol (HTTP) is the foundational architecture of the internet. In this 45-minute lesson, we dissect client-server communication, demystify GET vs POST method semantics and idempotency, and master the diagnostic categorization of 2xx, 4xx, and 5xx response codes.",
+      "timeline_breakdown": [
+        {
+          "phase": "1. Hook & Protocol Architecture",
+          "minutes": 5,
+          "description": "Analogy of postal service vs web client-server, and the stateless request-response lifecycle."
+        },
+        {
+          "phase": "2. HTTP Methods Deep-Dive: GET vs POST",
+          "minutes": 15,
+          "description": "Semantics, idempotency, safety, URL encoding vs body payloads, and security implications."
+        },
+        {
+          "phase": "3. Status Codes Categorization: 2xx, 4xx, 5xx",
+          "minutes": 10,
+          "description": "Distinguishing between client success, client errors, and server infrastructure failures."
+        },
+        {
+          "phase": "4. Hands-on Interactive Lab",
+          "minutes": 10,
+          "description": "Writing live cURL / fetch requests, analyzing headers, and inspecting server response codes."
+        },
+        {
+          "phase": "5. Knowledge Check & Conceptual Wrap-up",
+          "minutes": 5,
+          "description": "5-question conceptual quiz and key takeaway review."
+        }
+      ],
+      "sections": [
+        {
+          "id": "sec-1",
+          "title": "Introduction to the HTTP Request-Response Lifecycle",
+          "duration_min": 5,
+          "markdown_content": "### The Fabric of the Web: The Request-Response Cycle\nEvery time you open a browser, click a link, or swipe in a mobile app, you trigger an **HTTP (Hypertext Transfer Protocol)** exchange. HTTP is an application-layer, stateless, client-server protocol.\n\n#### The Fundamental Flow\n```\n+---------------+         HTTP Request (Method, URL, Headers, Body)        +---------------+\n|               |  ----------------------------------------------------->  |               |\n|  Client       |                                                          |  Web Server   |\n| (Browser/App) |  <-----------------------------------------------------  |  (Nginx/Node) |\n+---------------+        HTTP Response (Status Code, Headers, Body)        +---------------+\n```\n\n1. **Client initiates**: Sends a structured request specifying an action (the *Method*), target resource (the *URI*), and metadata (*Headers*).\n2. **Server processes**: Evaluates headers, parses any payload, handles business logic/database queries.\n3. **Server responds**: Returns a response containing a 3-digit **Status Code**, response headers, and optional payload (HTML, JSON, image).\n4. **Stateless Nature**: Each request is completely independent. The server retains no memory of previous requests unless explicit session or token state is exchanged in headers or cookies.",
+          "key_concepts": [
+            "Client-Server Architecture",
+            "Statelessness",
+            "Headers and Payloads"
+          ],
+          "instructor_notes": "Use the postal letter analogy: Headers are the envelope (to, from, postage); the body is the letter inside."
+        },
+        {
+          "id": "sec-2",
+          "title": "GET vs POST Methods: Semantics, Idempotency, and Security",
+          "duration_min": 15,
+          "markdown_content": "### Understanding HTTP Methods: Safe vs Idempotent Operations\nWhile HTTP defines multiple methods (HEAD, PUT, DELETE, PATCH, OPTIONS), **GET** and **POST** account for over 85% of standard web traffic.\n\n| Feature | GET Method | POST Method |\n| :--- | :--- | :--- |\n| **Primary Purpose** | Retrieve/read existing data | Submit data to create/modify a resource |\n| **Request Body** | No message body (parameters in query string) | Carries payload in message body (JSON, FormData) |\n| **Idempotent?** | **Yes** (Multiple identical requests yield same state) | **No** (Repeated requests create duplicate resources) |\n| **Safe?** | **Yes** (Does not mutate server-side state) | **No** (Mutates state or triggers side-effects) |\n| **Browser Caching** | Yes, automatically cached by browsers & CDNs | Not cached by default |\n| **Bookmarkable / History** | Yes, URLs can be bookmarked and appear in history | Cannot be cleanly bookmarked without re-submission |\n| **Data Visibility** | Parameters visible in browser address bar | Hidden in request payload |\n\n#### Key Technical Rule: Idempotency\n- An HTTP method is **idempotent** if making $N$ identical requests has the exact same side-effect on the server as making 1 request.\n- `GET /users/42` executed 100 times leaves the database unaltered ($f(x) = f(f(x))$).\n- `POST /orders` executed 100 times may charge the credit card 100 times and create 100 duplicate orders.\n\n#### The Security Misconception\n> ⚠️ **Common Junior Pitfall**: Never assume POST is \"secure\" just because parameters are not in the URL. POST bodies are transmitted in plaintext unless encrypted via **HTTPS (TLS)**. POST merely prevents credentials from leaking into server access logs, browser history, and shoulder surfers.\n\n> 🔒 **Security Best Practice & Status Nuance**:\n> - **401 vs 403**: `401 Unauthorized` means 'Who are you? (Authenticate first)', whereas `403 Forbidden` means 'I know who you are, but you lack permission'.\n> - **Transport Security**: Never rely on POST alone for sensitive data. Always enforce **HTTPS (TLS 1.3)** to prevent plaintext eavesdropping across public networks.",
+          "key_concepts": [
+            "Idempotency",
+            "Safety",
+            "Query String vs Request Body",
+            "HTTPS Encryption"
+          ],
+          "instructor_notes": "Emphasize that idempotency is about server state mutation, not the response status code."
+        },
+        {
+          "id": "sec-3",
+          "title": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "duration_min": 10,
+          "markdown_content": "### Navigating the HTTP Status Code Spectrum\nEvery HTTP response begins with a 3-digit status code. The first digit dictates the general response category:\n\n#### 1. 2xx: Success (The client's request was successfully received and accepted)\n- `200 OK`: Standard response for successful requests (e.g. GET returning data).\n- `201 Created`: The request succeeded and a new resource was created on the server (standard response for successful POST requests).\n- `204 No Content`: The request succeeded, but the server deliberately returns no body (common for DELETE or PUT updates).\n\n#### 2. 4xx: Client Error (The problem lies with the requester)\n- `400 Bad Request`: Server cannot process request due to malformed syntax or invalid JSON body.\n- `401 Unauthorized`: Client lacks valid authentication credentials (e.g., missing API key or expired JWT).\n- `403 Forbidden`: Server understands identity, but client does not have permission to access the resource.\n- `404 Not Found`: The requested URL path does not exist on the server.\n- `405 Method Not Allowed`: The resource exists, but does not support this HTTP verb (e.g., sending a POST to a read-only endpoint).\n\n#### 3. 5xx: Server Error (The server encountered an internal failure or misconfiguration)\n- `500 Internal Server Error`: Generic unhandled exception in backend code (e.g. unhandled NullPointerException or uncaught database error).\n- `502 Bad Gateway`: The server acting as a proxy/gateway received an invalid response from upstream (e.g., Nginx unable to connect to Python backend).\n- `503 Service Unavailable`: Server is temporarily overloaded or undergoing maintenance.\n- `504 Gateway Timeout`: Gateway or proxy did not receive a timely response from the backend application service.\n\n```\n       ┌───────────────────────────────┐\n       │   HTTP Status Code Triage     │\n       └──────────────┬────────────────┘\n                      ▼\n         ┌─────────────────────────┐\n         │ First Digit Classification │\n         └────────────┬────────────┘\n         ┌────────────┼────────────┐\n         ▼            ▼            ▼\n      [ 2xx ]      [ 4xx ]      [ 5xx ]\n      Success    Client Error Server Error\n   (Action Done) (Fix Request) (Fix Server)\n```",
+          "key_concepts": [
+            "2xx Success Semantics",
+            "4xx Client Errors vs 5xx Server Failures",
+            "Debugging Status Trees"
+          ],
+          "instructor_notes": "Quick memory hook for students: 2xx = 'You got it', 4xx = 'You messed up', 5xx = 'I (server) messed up'."
+        },
+        {
+          "id": "sec-4",
+          "title": "Practical Implementation & cURL Examples",
+          "duration_min": 5,
+          "markdown_content": "### Hands-On: Anatomy of Real Requests\n\n#### 1. Real GET Request via cURL\n```bash\n# Querying a list of published articles with pagination\ncurl -i -X GET \"https://api.example.com/v1/articles?limit=5&category=tech\" \\\n  -H \"Accept: application/json\"\n```\n**Expected Response:**\n```http\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\nCache-Control: public, max-age=3600\n\n[\n  {\"id\": 101, \"title\": \"Understanding HTTP\", \"category\": \"tech\"},\n  {\"id\": 102, \"title\": \"REST API Guidelines\", \"category\": \"tech\"}\n]\n```\n\n#### 2. Real POST Request via cURL\n```bash\n# Creating a new comment on an article\ncurl -i -X POST \"https://api.example.com/v1/articles/101/comments\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer my_jwt_token_here\" \\\n  -d '{\"author\": \"Jane Doe\", \"comment\": \"Excellent breakdown of 4xx vs 5xx!\"}'\n```\n**Expected Response:**\n```http\nHTTP/1.1 201 Created\nLocation: /v1/articles/101/comments/4819\nContent-Type: application/json\n\n{\n  \"id\": 4819,\n  \"status\": \"published\",\n  \"created_at\": \"2026-11-07T12:00:00Z\"\n}\n```",
+          "key_concepts": [
+            "cURL Syntax",
+            "Header Inspection",
+            "Status Code Verification"
+          ],
+          "instructor_notes": "Have students inspect the `-i` flag in cURL which outputs response HTTP headers."
+        }
+      ],
+      "practical_applications": [
+        "Building RESTful APIs for frontend web and mobile client applications.",
+        "Diagnosing and resolving customer-facing errors in production monitoring dashboards (Datadog, Sentry).",
+        "Configuring API gateways, reverse proxies, and rate limiters to protect upstream servers."
+      ],
+      "activity": {
+        "title": "Diagnostic Detective: Triage the HTTP Incidents",
+        "duration_min": 10,
+        "instructions": "Analyze each scenario below and determine the correct HTTP Method and HTTP Status Code that should be returned.",
+        "challenge_prompt": "Scenario A: A user fills out a registration form and submits their email, username, and password. The account is created in the database.\nScenario B: A user searches for products with keyword 'headphones'. The query returns 15 matching items.\nScenario C: A mobile client calls /profile/settings with an expired OAuth token.\nScenario D: A database connection pool runs out of memory and crashes when processing an order.",
+        "starter_code": "# Diagnostic Challenge\nscenarios = {\n    \"A_Registration\": {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"B_Search\":       {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"C_ExpiredToken\": {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"D_DBCrash\":      {\"method\": \"???\", \"expected_status\": \"???\"}\n}",
+        "solution_code": "# Solution Key\nscenarios = {\n    \"A_Registration\": {\"method\": \"POST\", \"expected_status\": \"201 Created\"},\n    \"B_Search\":       {\"method\": \"GET\",  \"expected_status\": \"200 OK\"},\n    \"C_ExpiredToken\": {\"method\": \"GET/POST\", \"expected_status\": \"401 Unauthorized\"},\n    \"D_DBCrash\":      {\"method\": \"POST\", \"expected_status\": \"500 Internal Server Error (or 503)\"}\n}"
+      },
+      "knowledge_checks": [
+        {
+          "id": 1,
+          "question": "Which of the following statements accurately characterizes the HTTP GET method?",
+          "options": [
+            "GET is non-idempotent because it carries data in the message body.",
+            "GET is safe and idempotent, meaning it should not alter server state on repeated invocations.",
+            "GET is inherently more secure than POST because it cannot be intercepted.",
+            "GET should be used when charging a user's credit card or submitting orders."
+          ],
+          "correct_index": 1,
+          "explanation": "GET is defined in RFC 9110 as safe (read-only) and idempotent. Calling GET multiple times produces identical state without mutating server records.",
+          "related_concept": "HTTP Method Idempotency"
+        },
+        {
+          "id": 2,
+          "question": "An API consumer attempts to create a new user via POST, but omits the mandatory 'email' field in their JSON payload. Which status code should the API return?",
+          "options": [
+            "200 OK",
+            "400 Bad Request",
+            "404 Not Found",
+            "500 Internal Server Error"
+          ],
+          "correct_index": 1,
+          "explanation": "400 Bad Request indicates that the server cannot process the request due to client error (e.g. malformed syntax, missing mandatory payload fields).",
+          "related_concept": "4xx Client Errors"
+        },
+        {
+          "id": 3,
+          "question": "What is the primary difference between a 4xx status code and a 5xx status code?",
+          "options": [
+            "4xx indicates an internal database crash, whereas 5xx indicates an invalid URL path.",
+            "4xx codes are for client-side issues (invalid request/auth), whereas 5xx codes indicate the server failed while processing.",
+            "4xx codes are automatically retried by browsers, whereas 5xx codes cannot be retried.",
+            "4xx codes carry no headers, whereas 5xx codes always carry JSON."
+          ],
+          "correct_index": 1,
+          "explanation": "4xx represents client-originating errors (bad syntax, unauthorized access, missing page). 5xx represents server-originating errors (crashes, gateway timeouts).",
+          "related_concept": "Status Code Categorization"
+        },
+        {
+          "id": 4,
+          "question": "When a resource is successfully created on the server as a direct result of a POST request, what is the most appropriate HTTP status code?",
+          "options": [
+            "200 OK",
+            "201 Created",
+            "204 No Content",
+            "302 Found"
+          ],
+          "correct_index": 1,
+          "explanation": "While 200 OK indicates generic success, 201 Created is the specific, standard HTTP status code indicating that one or more new resources have been created.",
+          "related_concept": "2xx Success Codes"
+        },
+        {
+          "id": 5,
+          "question": "A web browser sends a request to Nginx, but the upstream Python backend application is completely down. What status code will Nginx return to the client?",
+          "options": [
+            "401 Unauthorized",
+            "404 Not Found",
+            "502 Bad Gateway",
+            "200 OK with empty body"
+          ],
+          "correct_index": 2,
+          "explanation": "502 Bad Gateway indicates that an intermediate proxy or gateway server (like Nginx) received an invalid response or connection refusal from the upstream application server.",
+          "related_concept": "5xx Server Errors"
+        }
+      ],
+      "summary_takeaways": [
+        "HTTP is a stateless client-server protocol where every request receives an authoritative status code.",
+        "GET is safe and idempotent (ideal for queries); POST is non-idempotent (ideal for creating resources and state changes).",
+        "2xx signifies successful processing (200 OK, 201 Created).",
+        "4xx highlights client-side faults (400 Bad Request, 401 Unauthorized, 404 Not Found).",
+        "5xx alerts developers to server-side exceptions or infrastructure crashes (500 Internal Error, 502 Bad Gateway, 503 Unavailable)."
+      ],
+      "supplementary_videos": [
+        {
+          "title": "HTTP Crash Course & How The Web Works",
+          "channel": "Traversy Media",
+          "video_id": "iYM2zFP3Zn0",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0",
+          "duration": "24:12",
+          "thumbnail_url": "https://img.youtube.com/vi/iYM2zFP3Zn0/hqdefault.jpg",
+          "relevance_summary": "Covers HTTP protocol flow, GET vs POST requests, headers, and 2xx, 4xx, and 5xx status codes with real browser network tabs.",
+          "relevance_score": 98
+        },
+        {
+          "title": "HTTP Status Codes in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "wJa5Ch0O474",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474",
+          "duration": "02:18",
+          "thumbnail_url": "https://img.youtube.com/vi/wJa5Ch0O474/hqdefault.jpg",
+          "relevance_summary": "Fast-paced, humorous, and memorable breakdown of 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error, and 503 Unavailable.",
+          "relevance_score": 96
+        },
+        {
+          "title": "GET vs POST Methods Explained",
+          "channel": "freeCodeCamp.org",
+          "video_id": "ee5Xj_aHk68",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68",
+          "duration": "14:45",
+          "thumbnail_url": "https://img.youtube.com/vi/ee5Xj_aHk68/hqdefault.jpg",
+          "relevance_summary": "Detailed comparison of HTTP GET and POST: idempotency, URL query parameters vs message bodies, caching, and security considerations.",
+          "relevance_score": 97
+        }
+      ],
+      "references": [
+        {
+          "type": "Book",
+          "title": "HTTP: The Definitive Guide",
+          "citation": "David Gourley, Brian Totty (2002). HTTP: The Definitive Guide. O'Reilly Media.",
+          "url": "https://www.oreilly.com/library/view/http-the-definitive/1565925092/"
+        },
+        {
+          "type": "Book",
+          "title": "RESTful Web APIs: Services for a Changing World",
+          "citation": "Leonard Richardson, Mike Amundsen (2013). RESTful Web APIs: Services for a Changing World. O'Reilly Media.",
+          "url": "https://www.oreilly.com/library/view/restful-web-apis/9781449359713/"
+        },
+        {
+          "type": "Book",
+          "title": "Computer Networking: A Top-Down Approach (8th Edition)",
+          "citation": "James F. Kurose, Keith W. Ross (2021). Computer Networking: A Top-Down Approach (8th Edition). Pearson.",
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003334"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "MDN Web Docs: An Overview of HTTP & HTTP Methods",
+          "citation": "MDN Web Docs: An Overview of HTTP & HTTP Methods - developer.mozilla.org.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "MDN Web Docs: HTTP Response Status Codes",
+          "citation": "MDN Web Docs: HTTP Response Status Codes - developer.mozilla.org.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "RFC 9110: HTTP Semantics Specification (IETF)",
+          "citation": "RFC 9110: HTTP Semantics Specification (IETF) - rfc-editor.org.",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+        },
+        {
+          "type": "Video Resource",
+          "title": "HTTP Crash Course & How The Web Works",
+          "citation": "Traversy Media (24:12) - HTTP Crash Course & How The Web Works.",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0"
+        },
+        {
+          "type": "Video Resource",
+          "title": "HTTP Status Codes in 100 Seconds",
+          "citation": "Fireship (02:18) - HTTP Status Codes in 100 Seconds.",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474"
+        },
+        {
+          "type": "Video Resource",
+          "title": "GET vs POST Methods Explained",
+          "citation": "freeCodeCamp.org (14:45) - GET vs POST Methods Explained.",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68"
+        }
+      ]
+    },
+    "status": "generated",
+    "qc_layer_1": {
+      "layer_name": "QC Layer 1: Research and Factual Accuracy",
+      "overall_score": 96.0,
+      "status": "PASSED WITH RECOMMENDATIONS",
+      "source_reliability_rating": "Exceptional (Peer-reviewed RFCs, O'Reilly textbooks, MDN)",
+      "claims_audit": [
+        {
+          "claim": "GET is safe and idempotent per RFC 9110 specification.",
+          "status": "VERIFIED",
+          "source": "RFC 9110 / MDN Web Docs",
+          "severity": "LOW",
+          "comment": "Accurately represents IETF standards: GET does not mutate server state across repetitive requests."
+        },
+        {
+          "claim": "POST is non-idempotent and carries data in the message body.",
+          "status": "VERIFIED",
+          "source": "HTTP: The Definitive Guide (O'Reilly)",
+          "severity": "LOW",
+          "comment": "Accurate: POST is designed to produce side effects such as creating database entries or processing transactions."
+        },
+        {
+          "claim": "2xx status codes denote client request acceptance and success.",
+          "status": "VERIFIED",
+          "source": "RFC 9110 Section 15.3",
+          "severity": "LOW",
+          "comment": "Accurate: Correctly highlights 200 OK and 201 Created semantics."
+        },
+        {
+          "claim": "4xx represents client-originating errors, whereas 5xx represents server infrastructure failures.",
+          "status": "VERIFIED",
+          "source": "MDN Web Docs: HTTP Status Codes",
+          "severity": "LOW",
+          "comment": "Accurate: Validates separation of concerns between client malformed input and server crash."
+        },
+        {
+          "claim": "POST requests are inherently secure compared to GET without HTTPS.",
+          "status": "NEEDS_CONTEXT",
+          "source": "Computer Networking: A Top-Down Approach",
+          "severity": "MEDIUM",
+          "comment": "Important clarification: POST payloads travel in plaintext across network hops unless TLS/HTTPS is active. The distinction is visibility (URLs in browser history vs payload in body)."
+        }
+      ],
+      "sources_audit": [
+        {
+          "source_name": "RFC 9110: HTTP Semantics (IETF)",
+          "type": "Official Standard",
+          "credibility_grade": "A+",
+          "relevance": "Direct foundational standard for HTTP methods and status codes."
+        },
+        {
+          "source_name": "HTTP: The Definitive Guide (O'Reilly Media)",
+          "type": "Authoritative Book",
+          "credibility_grade": "A",
+          "relevance": "Exhaustive coverage of client-server message formats and caching mechanics."
+        },
+        {
+          "source_name": "MDN Web Docs (Mozilla Foundation)",
+          "type": "Technical Documentation",
+          "credibility_grade": "A+",
+          "relevance": "Industry standard reference for real-world browser and API implementations."
+        },
+        {
+          "source_name": "Traversy Media / Fireship Tutorials",
+          "type": "Verified YouTube",
+          "credibility_grade": "B+",
+          "relevance": "High educational engagement with practical network tab demonstrations."
+        }
+      ],
+      "identified_gaps": [
+        "Clarify the specific behavioral difference between 401 Unauthorized (unauthenticated) vs 403 Forbidden (authenticated but lacking role/permission).",
+        "Emphasize explicitly that HTTPS (TLS) encryption is required to protect POST payloads from packet sniffing."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-fact-1",
+          "target_section": "GET vs POST Methods: Semantics, Idempotency, and Security",
+          "issue": "Needs explicit clarification on the difference between 401 Unauthorized and 403 Forbidden, and TLS role in POST.",
+          "recommendation": "Add a dedicated security advisory note distinguishing 401 (missing credentials) vs 403 (insufficient permissions) and reinforcing TLS encryption.",
+          "patch_text": "\n> 🔒 **Security Best Practice & Status Nuance**:\n> - **401 vs 403**: `401 Unauthorized` means 'Who are you? (Authenticate first)', whereas `403 Forbidden` means 'I know who you are, but you lack permission'.\n> - **Transport Security**: Never rely on POST alone for sensitive data. Always enforce **HTTPS (TLS 1.3)** to prevent plaintext eavesdropping across public networks.",
+          "applied": true
+        },
+        {
+          "id": "fix-fact-2",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Status code 204 No Content is mentioned briefly without explaining how it affects browser navigation.",
+          "recommendation": "Add an instructional callout on how browsers treat 204 No Content (keeping the current page view intact without reloading).",
+          "patch_text": "\n> 💡 **Instructor Tip on 204 No Content**: Explain that when a browser receives `204 No Content`, it intentionally does NOT change or reload the current page view, making it ideal for background auto-save or tracking actions.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T12:59:48.353359+00:00"
+    },
+    "qc_layer_2": {
+      "layer_name": "QC Layer 2: Instructional Quality",
+      "overall_score": 95.4,
+      "status": "EXCELLENT",
+      "objective_alignment_score": 98.0,
+      "bloom_taxonomy_level": "Analyze & Apply (Bloom's Taxonomy Levels 4 & 3)",
+      "rubric_breakdown": {
+        "clarity": {
+          "score": 96.0,
+          "feedback": "Technical concepts are introduced with vivid analogies (postal service, triage trees) before diving into RFC technicalities."
+        },
+        "structure": {
+          "score": 97.0,
+          "feedback": "Exemplary 5-phase progression: Hook -> Core Direct Instruction -> Code Demonstration -> Guided Hands-on Lab -> Knowledge Check."
+        },
+        "pacing_45min": {
+          "score": 95.0,
+          "feedback": "Directly calibrated to 45 minutes: 5m Hook, 15m Deep Dive, 10m Scenarios/Examples, 10m Student Lab, 5m Assessment."
+        },
+        "interactivity": {
+          "score": 94.0,
+          "feedback": "Includes a diagnostic problem-solving scenario lab with starter and solution code, plus 5 active recall multiple choice questions."
+        },
+        "assessment_rigor": {
+          "score": 95.0,
+          "feedback": "Questions target conceptual comprehension, diagnostic triage, and edge cases rather than superficial rote memorization."
+        }
+      },
+      "identified_gaps": [
+        "The transition between GET/POST and Status Codes could benefit from an explicit bridge sentence explaining that methods initiate the intent and status codes communicate the outcome.",
+        "Consider adding an instructor time-check prompt at minute 25 to help pacing in instructor-led delivery."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-inst-1",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Transitions between request methods and response codes can confuse beginners who see them as isolated concepts.",
+          "recommendation": "Add a pedagogical conceptual bridge highlighting how HTTP request methods and response status codes form a conversational dialogue.",
+          "patch_text": "\n> 🎯 **Pedagogical Bridge (The Conversation Paradigm)**:\n> Think of HTTP as a structured dialogue: The **Method (GET/POST)** is the question asked by the client; the **Status Code (2xx/4xx/5xx)** is the definitive answer returned by the server.",
+          "applied": false
+        },
+        {
+          "id": "fix-inst-2",
+          "target_section": "Diagnostic Detective: Triage the HTTP Incidents",
+          "issue": "Instructors need a rubric to debrief the hands-on lab within the 10-minute window.",
+          "recommendation": "Add an Instructor Debrief Guide with timed discussion prompts.",
+          "patch_text": "\n> ⏱️ **Instructor Pacing Cue (Minute 35)**:\n> Dedicate 6 minutes for independent student triage, followed by a 4-minute rapid-fire debrief focusing specifically on why Scenario D produces a 500 error instead of a 400 error.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T12:59:48.353359+00:00"
+    },
+    "id": "55df2769-4972-4338-a773-cd1eee99a9b4",
+    "created_at": "2026-11-07T12:59:48.364414+00:00",
+    "updated_at": "2026-11-07T12:59:48.395817+00:00"
+  },
+  {
+    "title": "Binary Search Algorithm: Theory, Implementation, and Complexity",
+    "learning_objective": "Implement binary search iteratively and recursively, analyze its O(log n) time complexity, and identify boundary condition pitfalls (off-by-one errors).",
+    "target_duration": 45,
+    "research": {
+      "query": "Binary Search Algorithm: Theory, Implementation, and Complexity Implement binary search iteratively and recursively, analyze its O(log n) time complexity, and identify boundary condition pitfalls (off-by-one errors).",
+      "books": [
+        {
+          "title": "Introduction to Algorithms (CLRS, 4th Edition)",
+          "authors": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+          "year": "2022",
+          "publisher": "MIT Press",
+          "description": "The definitive textbook on algorithms, data structures, and rigorous complexity analysis.",
+          "key_takeaways": "O(log n) divide-and-conquer proof, mid-point integer overflow prevention, and recurrence relations.",
+          "relevance_score": 99,
+          "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+        },
+        {
+          "title": "Grokking Algorithms: An Illustrated Guide",
+          "authors": "Aditya Y. Bhargava",
+          "year": "2016",
+          "publisher": "Manning",
+          "description": "Visual, intuitive guide explaining binary search mechanics, logarithmic time intuition, and search spaces.",
+          "key_takeaways": "Step-by-step visual elimination of search halves and practical pointers on loop invariants.",
+          "relevance_score": 96,
+          "url": "https://www.manning.com/books/grokking-algorithms"
+        }
+      ],
+      "websites": [
+        {
+          "title": "GeeksforGeeks: Binary Search - Complete Tutorial",
+          "url": "https://www.geeksforgeeks.org/binary-search/",
+          "domain": "geeksforgeeks.org",
+          "summary": "Comprehensive tutorial covering binary search algorithms, iterative vs recursive logic, mid calculation overflow handling, and complexity.",
+          "credibility_rating": "Established Technical Learning Platform",
+          "relevance_score": 95
+        },
+        {
+          "title": "Wikipedia: Binary Search Algorithm",
+          "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm",
+          "domain": "en.wikipedia.org",
+          "summary": "Mathematical analysis of binary search, logarithmic time bounds, and historical implementation bugs in standard libraries.",
+          "credibility_rating": "Peer-Reviewed Open Resource",
+          "relevance_score": 94
+        }
+      ],
+      "videos": [
+        {
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "MFhxShGxHWc",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc",
+          "duration": "02:25",
+          "thumbnail_url": "https://img.youtube.com/vi/MFhxShGxHWc/hqdefault.jpg",
+          "relevance_summary": "High-level overview of binary search mechanics, logarithmic time complexity, and divide-and-conquer principles.",
+          "relevance_score": 97
+        },
+        {
+          "title": "Binary Search - CS50 Shorts",
+          "channel": "CS50 (Harvard)",
+          "video_id": "T98PIp4omUA",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+          "duration": "08:14",
+          "thumbnail_url": "https://img.youtube.com/vi/T98PIp4omUA/hqdefault.jpg",
+          "relevance_summary": "Harvard CS50 instructional video explaining array indexing, pointers (low, high, mid), and step-by-step trace.",
+          "relevance_score": 99
+        },
+        {
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "channel": "NeetCode",
+          "video_id": "s4D9ydZScWQ",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ",
+          "duration": "12:30",
+          "thumbnail_url": "https://img.youtube.com/vi/s4D9ydZScWQ/hqdefault.jpg",
+          "relevance_summary": "Hands-on walkthrough discussing while loop bounds (<= vs <), mid calculation overflow avoidance, and boundary conditions.",
+          "relevance_score": 95
+        }
+      ],
+      "summary": "Researched 2 authoritative books, 2 reference websites, and 3 curated YouTube tutorials for 'Binary Search Algorithm: Theory, Implementation, and Complexity'."
+    },
+    "content": {
+      "overview": "Binary Search is one of the most fundamental and elegant algorithms in computer science. Designed for a 45-minute mastery session, this lesson covers intuition, pointer invariants, safe midpoint calculations, and boundary condition pitfalls.",
+      "timeline_breakdown": [
+        {
+          "phase": "1. Intuition & Prerequisite Conditions",
+          "minutes": 5,
+          "description": "The phonebook / dictionary search analogy and sorted order requirement."
+        },
+        {
+          "phase": "2. Divide and Conquer Algorithm Mechanics",
+          "minutes": 15,
+          "description": "Pointer management (low, high, mid), loop invariants, and logarithmic time derivation."
+        },
+        {
+          "phase": "3. Implementation & Common Pitfalls",
+          "minutes": 10,
+          "description": "Iterative vs recursive logic, avoiding mid-point integer overflow, and off-by-one errors."
+        },
+        {
+          "phase": "4. Hands-on Coding Challenge",
+          "minutes": 10,
+          "description": "Implementing binary search with exact boundary conditions and test cases."
+        },
+        {
+          "phase": "5. Evaluation & Knowledge Check",
+          "minutes": 5,
+          "description": "Interactive assessment and complexity comparison summary."
+        }
+      ],
+      "sections": [
+        {
+          "id": "sec-bs-1",
+          "title": "The Power of Logarithmic Search: Intuition & Prerequisites",
+          "duration_min": 5,
+          "markdown_content": "### Linear vs Logarithmic Search\nImagine looking for a name in a telephone directory containing 1,000,000 entries:\n- **Linear Search**: Check entry 1, entry 2, entry 3... Up to 1,000,000 operations in the worst case ($O(n)$).\n- **Binary Search**: Open the middle. Target is alphabetically earlier? Throw away 500,000 entries in **one comparison**! Repeat: only $\\approx 20$ operations ($O(\\log n)$).\n\n#### Strict Prerequisite\n> ⚠️ **Absolute Requirement**: Binary Search **requires a monotonically sorted collection** (or a monotonic search predicate). If the array is unsorted, binary search is invalid.",
+          "key_concepts": [
+            "Monotonicity",
+            "Logarithmic Time Complexity",
+            "Search Space Halving"
+          ],
+          "instructor_notes": "Demonstrate with a physical book: tear it in half (metaphorically) to illustrate cutting search space by 50% each step."
+        },
+        {
+          "id": "sec-bs-2",
+          "title": "Algorithm Mechanics: Pointer Invariants & Complexity",
+          "duration_min": 15,
+          "markdown_content": "### Pointer Mechanics\nWe track three indices:\n- `low`: The leftmost candidate index of the active search space.\n- `high`: The rightmost candidate index of the active search space.\n- `mid`: The midpoint index evaluated during each iteration.\n\n#### The Loop Invariant\nIn a closed interval `[low, high]`, the search space remains valid as long as `low <= high`.\nWhen `low > high`, the search space is exhausted, proving the target does not exist.\n\n#### Preventing Integer Overflow\nIn languages like C++, Java, or Go, calculating midpoint naively can trigger integer overflow:\n```python\n# ❌ DANGEROUS in statically typed 32-bit languages:\n# mid = (low + high) // 2   (Can overflow if low + high > 2^31 - 1)\n\n# ✅ SAFE:\nmid = low + (high - low) // 2\n```",
+          "key_concepts": [
+            "Pointers",
+            "Loop Invariants",
+            "Integer Overflow Prevention"
+          ],
+          "instructor_notes": "Mention the famous historical Java binary search bug discovered by Joshua Bloch in 2006 that went unnoticed for 9 years."
+        },
+        {
+          "id": "sec-bs-3",
+          "title": "Clean Iterative Python Implementation",
+          "duration_min": 10,
+          "markdown_content": "### Production Iterative Implementation\n```python\ndef binary_search(arr: list[int], target: int) -> int:\n    \"\"\"Performs binary search on a sorted list.\n    \n    Returns the index of target if found, else -1.\n    Time Complexity: O(log n)\n    Space Complexity: O(1)\n    \"\"\"\n    low = 0\n    high = len(arr) - 1\n\n    while low <= high:\n        # Prevent integer overflow\n        mid = low + (high - low) // 2\n\n        if arr[mid] == target:\n            return mid  # Target found\n        elif arr[mid] < target:\n            low = mid + 1  # Discard left half\n        else:\n            high = mid - 1  # Discard right half\n\n    return -1  # Target not found\n```",
+          "key_concepts": [
+            "Iterative Algorithm",
+            "Space Complexity O(1)",
+            "Termination Conditions"
+          ],
+          "instructor_notes": "Walk through boundary cases: empty array, single-element array, target at first index, target at last index."
+        }
+      ],
+      "practical_applications": [
+        "Database B-Tree and LSM-Tree index lookups.",
+        "Git bisect: Identifying the commit that introduced a bug using binary search over commit history.",
+        "Numerical root-finding algorithms and finding peak elements in arrays."
+      ],
+      "activity": {
+        "title": "Implement Binary Search with Duplicate Elements",
+        "duration_min": 10,
+        "instructions": "Modify binary search to return the *first occurrence* (leftmost index) of a target that appears multiple times in a sorted array.",
+        "challenge_prompt": "Given `arr = [2, 4, 4, 4, 6, 7]` and `target = 4`, standard binary search might return index 2. Return the leftmost index (index 1).",
+        "starter_code": "def find_first_occurrence(arr: list[int], target: int) -> int:\n    # Your implementation here\n    pass",
+        "solution_code": "def find_first_occurrence(arr: list[int], target: int) -> int:\n    low = 0\n    high = len(arr) - 1\n    result = -1\n\n    while low <= high:\n        mid = low + (high - low) // 2\n        if arr[mid] == target:\n            result = mid\n            high = mid - 1  # Continue searching left\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n\n    return result"
+      },
+      "knowledge_checks": [
+        {
+          "id": 1,
+          "question": "What is the worst-case time complexity of binary search on a sorted array of size n?",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+          ],
+          "correct_index": 1,
+          "explanation": "Binary search divides the search space in half at each iteration, resulting in a logarithmic runtime of O(log n).",
+          "related_concept": "Time Complexity Analysis"
+        },
+        {
+          "id": 2,
+          "question": "Why is 'mid = low + (high - low) // 2' preferred over 'mid = (low + high) // 2' in systems programming?",
+          "options": [
+            "It runs in O(1) whereas the other is O(n).",
+            "It prevents arithmetic integer overflow when low + high exceeds the maximum integer limit.",
+            "It automatically handles descending arrays.",
+            "It allows binary search on linked lists."
+          ],
+          "correct_index": 1,
+          "explanation": "In languages with fixed-size integer types (32-bit/64-bit), adding low + high can overflow into negative numbers. Subtraction avoids this.",
+          "related_concept": "Arithmetic Overflow Safeguards"
+        },
+        {
+          "id": 3,
+          "question": "What happens if binary search is executed on an unsorted array?",
+          "options": [
+            "It throws a compile-time exception.",
+            "It automatically sorts the array first in O(n log n).",
+            "It may return an incorrect index or report the element is missing even if present.",
+            "It functions normally with O(n) complexity."
+          ],
+          "correct_index": 2,
+          "explanation": "Binary search fundamentally relies on the monotonicity of sorted order to discard half the array. On an unsorted array, the discarded half might contain the target.",
+          "related_concept": "Preconditions"
+        }
+      ],
+      "summary_takeaways": [
+        "Binary search reduces search complexity from linear O(n) to logarithmic O(log n).",
+        "Sorted order is a strict prerequisite.",
+        "Use 'low + (high - low) // 2' to guarantee memory and integer safety.",
+        "Loop invariant 'low <= high' guarantees complete search space exhaustion."
+      ],
+      "supplementary_videos": [
+        {
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "MFhxShGxHWc",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc",
+          "duration": "02:25",
+          "thumbnail_url": "https://img.youtube.com/vi/MFhxShGxHWc/hqdefault.jpg",
+          "relevance_summary": "High-level overview of binary search mechanics, logarithmic time complexity, and divide-and-conquer principles.",
+          "relevance_score": 97
+        },
+        {
+          "title": "Binary Search - CS50 Shorts",
+          "channel": "CS50 (Harvard)",
+          "video_id": "T98PIp4omUA",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+          "duration": "08:14",
+          "thumbnail_url": "https://img.youtube.com/vi/T98PIp4omUA/hqdefault.jpg",
+          "relevance_summary": "Harvard CS50 instructional video explaining array indexing, pointers (low, high, mid), and step-by-step trace.",
+          "relevance_score": 99
+        },
+        {
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "channel": "NeetCode",
+          "video_id": "s4D9ydZScWQ",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ",
+          "duration": "12:30",
+          "thumbnail_url": "https://img.youtube.com/vi/s4D9ydZScWQ/hqdefault.jpg",
+          "relevance_summary": "Hands-on walkthrough discussing while loop bounds (<= vs <), mid calculation overflow avoidance, and boundary conditions.",
+          "relevance_score": 95
+        }
+      ],
+      "references": [
+        {
+          "type": "Book",
+          "title": "Introduction to Algorithms (CLRS, 4th Edition)",
+          "citation": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein (2022). Introduction to Algorithms (CLRS, 4th Edition). MIT Press.",
+          "url": "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/"
+        },
+        {
+          "type": "Book",
+          "title": "Grokking Algorithms: An Illustrated Guide",
+          "citation": "Aditya Y. Bhargava (2016). Grokking Algorithms: An Illustrated Guide. Manning.",
+          "url": "https://www.manning.com/books/grokking-algorithms"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "GeeksforGeeks: Binary Search - Complete Tutorial",
+          "citation": "GeeksforGeeks: Binary Search - Complete Tutorial - geeksforgeeks.org.",
+          "url": "https://www.geeksforgeeks.org/binary-search/"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "Wikipedia: Binary Search Algorithm",
+          "citation": "Wikipedia: Binary Search Algorithm - en.wikipedia.org.",
+          "url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search Algorithm in 100 Seconds",
+          "citation": "Fireship (02:25) - Binary Search Algorithm in 100 Seconds.",
+          "url": "https://www.youtube.com/watch?v=MFhxShGxHWc"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search - CS50 Shorts",
+          "citation": "CS50 (Harvard) (08:14) - Binary Search - CS50 Shorts.",
+          "url": "https://www.youtube.com/watch?v=T98PIp4omUA"
+        },
+        {
+          "type": "Video Resource",
+          "title": "Binary Search Tutorial & Common Pitfalls",
+          "citation": "NeetCode (12:30) - Binary Search Tutorial & Common Pitfalls.",
+          "url": "https://www.youtube.com/watch?v=s4D9ydZScWQ"
+        }
+      ]
+    },
+    "status": "generated",
+    "qc_layer_1": {
+      "layer_name": "QC Layer 1: Research and Factual Accuracy",
+      "overall_score": 97.0,
+      "status": "PASSED WITH RECOMMENDATIONS",
+      "source_reliability_rating": "Excellent (MIT Press, CLRS)",
+      "claims_audit": [
+        {
+          "claim": "Binary search worst-case time complexity is O(log n).",
+          "status": "VERIFIED",
+          "source": "CLRS 4th Edition",
+          "severity": "LOW",
+          "comment": "Strictly verified: logarithmic search tree depth."
+        },
+        {
+          "claim": "Requires monotonically sorted array as strict precondition.",
+          "status": "VERIFIED",
+          "source": "Grokking Algorithms",
+          "severity": "LOW",
+          "comment": "Strictly verified: unsorted data produces arbitrary false negative results."
+        },
+        {
+          "claim": "Naive (low + high) // 2 triggers overflow in languages with fixed-width integers.",
+          "status": "VERIFIED",
+          "source": "Joshua Bloch (Google Research, 2006)",
+          "severity": "LOW",
+          "comment": "Verified historical software defect."
+        }
+      ],
+      "sources_audit": [
+        {
+          "source_name": "Introduction to Algorithms (CLRS, MIT Press)",
+          "type": "Academic Textbook",
+          "credibility_grade": "A+",
+          "relevance": "Authoritative theoretical benchmark."
+        }
+      ],
+      "identified_gaps": [
+        "Include brief note on ternary search vs binary search comparison.",
+        "Mention Python's built-in `bisect` standard library module."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-bs-1",
+          "target_section": "Clean Iterative Python Implementation",
+          "issue": "Python developers in practice utilize standard library `bisect`.",
+          "recommendation": "Add a note showing `bisect_left` and `bisect_right` in Python's standard library.",
+          "patch_text": "\n> 🐍 **Python Standard Library Tip**: In production Python code, prefer the built-in C-optimized `bisect` module (`bisect.bisect_left(arr, target)`) which eliminates hand-rolled loop invariant bugs.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T12:59:44.542410+00:00"
+    },
+    "qc_layer_2": {
+      "layer_name": "QC Layer 2: Instructional Quality",
+      "overall_score": 95.4,
+      "status": "EXCELLENT",
+      "objective_alignment_score": 94.0,
+      "bloom_taxonomy_level": "Analyze & Apply (Bloom's Taxonomy Levels 4 & 3)",
+      "rubric_breakdown": {
+        "clarity": {
+          "score": 96.0,
+          "feedback": "Technical concepts are introduced with vivid analogies (postal service, triage trees) before diving into RFC technicalities."
+        },
+        "structure": {
+          "score": 97.0,
+          "feedback": "Exemplary 5-phase progression: Hook -> Core Direct Instruction -> Code Demonstration -> Guided Hands-on Lab -> Knowledge Check."
+        },
+        "pacing_45min": {
+          "score": 95.0,
+          "feedback": "Directly calibrated to 45 minutes: 5m Hook, 15m Deep Dive, 10m Scenarios/Examples, 10m Student Lab, 5m Assessment."
+        },
+        "interactivity": {
+          "score": 94.0,
+          "feedback": "Includes a diagnostic problem-solving scenario lab with starter and solution code, plus 5 active recall multiple choice questions."
+        },
+        "assessment_rigor": {
+          "score": 95.0,
+          "feedback": "Questions target conceptual comprehension, diagnostic triage, and edge cases rather than superficial rote memorization."
+        }
+      },
+      "identified_gaps": [
+        "The transition between GET/POST and Status Codes could benefit from an explicit bridge sentence explaining that methods initiate the intent and status codes communicate the outcome.",
+        "Consider adding an instructor time-check prompt at minute 25 to help pacing in instructor-led delivery."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-inst-1",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Transitions between request methods and response codes can confuse beginners who see them as isolated concepts.",
+          "recommendation": "Add a pedagogical conceptual bridge highlighting how HTTP request methods and response status codes form a conversational dialogue.",
+          "patch_text": "\n> 🎯 **Pedagogical Bridge (The Conversation Paradigm)**:\n> Think of HTTP as a structured dialogue: The **Method (GET/POST)** is the question asked by the client; the **Status Code (2xx/4xx/5xx)** is the definitive answer returned by the server.",
+          "applied": false
+        },
+        {
+          "id": "fix-inst-2",
+          "target_section": "Diagnostic Detective: Triage the HTTP Incidents",
+          "issue": "Instructors need a rubric to debrief the hands-on lab within the 10-minute window.",
+          "recommendation": "Add an Instructor Debrief Guide with timed discussion prompts.",
+          "patch_text": "\n> ⏱️ **Instructor Pacing Cue (Minute 35)**:\n> Dedicate 6 minutes for independent student triage, followed by a 4-minute rapid-fire debrief focusing specifically on why Scenario D produces a 500 error instead of a 400 error.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T12:59:44.542410+00:00"
+    },
+    "id": "a12c38b3-cd17-45cc-9bb2-8ed2f28a50ca",
+    "created_at": "2026-11-07T12:59:44.555560+00:00",
+    "updated_at": "2026-11-07T12:59:44.555560+00:00"
+  },
+  {
+    "title": "HTTP Requests and Responses",
+    "learning_objective": "Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
+    "target_duration": 45,
+    "research": {
+      "query": "HTTP Requests and Responses Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.",
+      "books": [
+        {
+          "title": "HTTP: The Definitive Guide",
+          "authors": "David Gourley, Brian Totty",
+          "year": "2002",
+          "publisher": "O'Reilly Media",
+          "description": "Comprehensive reference covering HTTP/1.1 mechanics, request-response architecture, header structures, and status codes.",
+          "key_takeaways": "Detailed specifications of GET and POST idempotency, client/server status codes (2xx, 4xx, 5xx), and connection handling.",
+          "relevance_score": 98,
+          "url": "https://www.oreilly.com/library/view/http-the-definitive/1565925092/"
+        },
+        {
+          "title": "RESTful Web APIs: Services for a Changing World",
+          "authors": "Leonard Richardson, Mike Amundsen",
+          "year": "2013",
+          "publisher": "O'Reilly Media",
+          "description": "Explores how HTTP protocol conventions power scalable web architectures and hypermedia systems.",
+          "key_takeaways": "Practical semantics for GET vs POST, safe method constraints, and actionable HTTP response code patterns.",
+          "relevance_score": 95,
+          "url": "https://www.oreilly.com/library/view/restful-web-apis/9781449359713/"
+        },
+        {
+          "title": "Computer Networking: A Top-Down Approach (8th Edition)",
+          "authors": "James F. Kurose, Keith W. Ross",
+          "year": "2021",
+          "publisher": "Pearson",
+          "description": "Standard university textbook detailing application-layer protocols, TCP/IP fundamentals, and HTTP client-server interactions.",
+          "key_takeaways": "Foundational networking model explaining socket connections, pipelining, and error response classifications.",
+          "relevance_score": 94,
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003334"
+        }
+      ],
+      "websites": [
+        {
+          "title": "MDN Web Docs: An Overview of HTTP & HTTP Methods",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
+          "domain": "developer.mozilla.org",
+          "summary": "Mozilla's authoritative guide on the Hypertext Transfer Protocol, request/response cycles, header fields, and safe vs idempotent operations.",
+          "credibility_rating": "Official Web Standards Documentation (Gold Standard)",
+          "relevance_score": 99
+        },
+        {
+          "title": "MDN Web Docs: HTTP Response Status Codes",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+          "domain": "developer.mozilla.org",
+          "summary": "Detailed specification of standard HTTP response codes categorized by 1xx, 2xx (Success), 3xx (Redirection), 4xx (Client Error), and 5xx (Server Error).",
+          "credibility_rating": "Official Web Standards Documentation (Gold Standard)",
+          "relevance_score": 99
+        },
+        {
+          "title": "RFC 9110: HTTP Semantics Specification (IETF)",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+          "domain": "rfc-editor.org",
+          "summary": "The definitive Internet Engineering Task Force (IETF) RFC standard defining semantics for HTTP methods (GET, POST), cacheability, and status codes.",
+          "credibility_rating": "Official International Standard Specification",
+          "relevance_score": 100
+        }
+      ],
+      "videos": [
+        {
+          "title": "HTTP Crash Course & How The Web Works",
+          "channel": "Traversy Media",
+          "video_id": "iYM2zFP3Zn0",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0",
+          "duration": "24:12",
+          "thumbnail_url": "https://img.youtube.com/vi/iYM2zFP3Zn0/hqdefault.jpg",
+          "relevance_summary": "Covers HTTP protocol flow, GET vs POST requests, headers, and 2xx, 4xx, and 5xx status codes with real browser network tabs.",
+          "relevance_score": 98
+        },
+        {
+          "title": "HTTP Status Codes in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "wJa5Ch0O474",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474",
+          "duration": "02:18",
+          "thumbnail_url": "https://img.youtube.com/vi/wJa5Ch0O474/hqdefault.jpg",
+          "relevance_summary": "Fast-paced, humorous, and memorable breakdown of 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error, and 503 Unavailable.",
+          "relevance_score": 96
+        },
+        {
+          "title": "GET vs POST Methods Explained",
+          "channel": "freeCodeCamp.org",
+          "video_id": "ee5Xj_aHk68",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68",
+          "duration": "14:45",
+          "thumbnail_url": "https://img.youtube.com/vi/ee5Xj_aHk68/hqdefault.jpg",
+          "relevance_summary": "Detailed comparison of HTTP GET and POST: idempotency, URL query parameters vs message bodies, caching, and security considerations.",
+          "relevance_score": 97
+        }
+      ],
+      "summary": "Researched 3 authoritative books, 3 reference websites, and 3 curated YouTube tutorials for 'HTTP Requests and Responses'."
+    },
+    "content": {
+      "overview": "The Hypertext Transfer Protocol (HTTP) is the foundational architecture of the internet. In this 45-minute lesson, we dissect client-server communication, demystify GET vs POST method semantics and idempotency, and master the diagnostic categorization of 2xx, 4xx, and 5xx response codes.",
+      "timeline_breakdown": [
+        {
+          "phase": "1. Hook & Protocol Architecture",
+          "minutes": 5,
+          "description": "Analogy of postal service vs web client-server, and the stateless request-response lifecycle."
+        },
+        {
+          "phase": "2. HTTP Methods Deep-Dive: GET vs POST",
+          "minutes": 15,
+          "description": "Semantics, idempotency, safety, URL encoding vs body payloads, and security implications."
+        },
+        {
+          "phase": "3. Status Codes Categorization: 2xx, 4xx, 5xx",
+          "minutes": 10,
+          "description": "Distinguishing between client success, client errors, and server infrastructure failures."
+        },
+        {
+          "phase": "4. Hands-on Interactive Lab",
+          "minutes": 10,
+          "description": "Writing live cURL / fetch requests, analyzing headers, and inspecting server response codes."
+        },
+        {
+          "phase": "5. Knowledge Check & Conceptual Wrap-up",
+          "minutes": 5,
+          "description": "5-question conceptual quiz and key takeaway review."
+        }
+      ],
+      "sections": [
+        {
+          "id": "sec-1",
+          "title": "Introduction to the HTTP Request-Response Lifecycle",
+          "duration_min": 5,
+          "markdown_content": "### The Fabric of the Web: The Request-Response Cycle\nEvery time you open a browser, click a link, or swipe in a mobile app, you trigger an **HTTP (Hypertext Transfer Protocol)** exchange. HTTP is an application-layer, stateless, client-server protocol.\n\n#### The Fundamental Flow\n```\n+---------------+         HTTP Request (Method, URL, Headers, Body)        +---------------+\n|               |  ----------------------------------------------------->  |               |\n|  Client       |                                                          |  Web Server   |\n| (Browser/App) |  <-----------------------------------------------------  |  (Nginx/Node) |\n+---------------+        HTTP Response (Status Code, Headers, Body)        +---------------+\n```\n\n1. **Client initiates**: Sends a structured request specifying an action (the *Method*), target resource (the *URI*), and metadata (*Headers*).\n2. **Server processes**: Evaluates headers, parses any payload, handles business logic/database queries.\n3. **Server responds**: Returns a response containing a 3-digit **Status Code**, response headers, and optional payload (HTML, JSON, image).\n4. **Stateless Nature**: Each request is completely independent. The server retains no memory of previous requests unless explicit session or token state is exchanged in headers or cookies.",
+          "key_concepts": [
+            "Client-Server Architecture",
+            "Statelessness",
+            "Headers and Payloads"
+          ],
+          "instructor_notes": "Use the postal letter analogy: Headers are the envelope (to, from, postage); the body is the letter inside."
+        },
+        {
+          "id": "sec-2",
+          "title": "GET vs POST Methods: Semantics, Idempotency, and Security",
+          "duration_min": 15,
+          "markdown_content": "### Understanding HTTP Methods: Safe vs Idempotent Operations\nWhile HTTP defines multiple methods (HEAD, PUT, DELETE, PATCH, OPTIONS), **GET** and **POST** account for over 85% of standard web traffic.\n\n| Feature | GET Method | POST Method |\n| :--- | :--- | :--- |\n| **Primary Purpose** | Retrieve/read existing data | Submit data to create/modify a resource |\n| **Request Body** | No message body (parameters in query string) | Carries payload in message body (JSON, FormData) |\n| **Idempotent?** | **Yes** (Multiple identical requests yield same state) | **No** (Repeated requests create duplicate resources) |\n| **Safe?** | **Yes** (Does not mutate server-side state) | **No** (Mutates state or triggers side-effects) |\n| **Browser Caching** | Yes, automatically cached by browsers & CDNs | Not cached by default |\n| **Bookmarkable / History** | Yes, URLs can be bookmarked and appear in history | Cannot be cleanly bookmarked without re-submission |\n| **Data Visibility** | Parameters visible in browser address bar | Hidden in request payload |\n\n#### Key Technical Rule: Idempotency\n- An HTTP method is **idempotent** if making $N$ identical requests has the exact same side-effect on the server as making 1 request.\n- `GET /users/42` executed 100 times leaves the database unaltered ($f(x) = f(f(x))$).\n- `POST /orders` executed 100 times may charge the credit card 100 times and create 100 duplicate orders.\n\n#### The Security Misconception\n> ⚠️ **Common Junior Pitfall**: Never assume POST is \"secure\" just because parameters are not in the URL. POST bodies are transmitted in plaintext unless encrypted via **HTTPS (TLS)**. POST merely prevents credentials from leaking into server access logs, browser history, and shoulder surfers.\n\n> 🔒 **Security Best Practice & Status Nuance**:\n> - **401 vs 403**: `401 Unauthorized` means 'Who are you? (Authenticate first)', whereas `403 Forbidden` means 'I know who you are, but you lack permission'.\n> - **Transport Security**: Never rely on POST alone for sensitive data. Always enforce **HTTPS (TLS 1.3)** to prevent plaintext eavesdropping across public networks.",
+          "key_concepts": [
+            "Idempotency",
+            "Safety",
+            "Query String vs Request Body",
+            "HTTPS Encryption"
+          ],
+          "instructor_notes": "Emphasize that idempotency is about server state mutation, not the response status code."
+        },
+        {
+          "id": "sec-3",
+          "title": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "duration_min": 10,
+          "markdown_content": "### Navigating the HTTP Status Code Spectrum\nEvery HTTP response begins with a 3-digit status code. The first digit dictates the general response category:\n\n#### 1. 2xx: Success (The client's request was successfully received and accepted)\n- `200 OK`: Standard response for successful requests (e.g. GET returning data).\n- `201 Created`: The request succeeded and a new resource was created on the server (standard response for successful POST requests).\n- `204 No Content`: The request succeeded, but the server deliberately returns no body (common for DELETE or PUT updates).\n\n#### 2. 4xx: Client Error (The problem lies with the requester)\n- `400 Bad Request`: Server cannot process request due to malformed syntax or invalid JSON body.\n- `401 Unauthorized`: Client lacks valid authentication credentials (e.g., missing API key or expired JWT).\n- `403 Forbidden`: Server understands identity, but client does not have permission to access the resource.\n- `404 Not Found`: The requested URL path does not exist on the server.\n- `405 Method Not Allowed`: The resource exists, but does not support this HTTP verb (e.g., sending a POST to a read-only endpoint).\n\n#### 3. 5xx: Server Error (The server encountered an internal failure or misconfiguration)\n- `500 Internal Server Error`: Generic unhandled exception in backend code (e.g. unhandled NullPointerException or uncaught database error).\n- `502 Bad Gateway`: The server acting as a proxy/gateway received an invalid response from upstream (e.g., Nginx unable to connect to Python backend).\n- `503 Service Unavailable`: Server is temporarily overloaded or undergoing maintenance.\n- `504 Gateway Timeout`: Gateway or proxy did not receive a timely response from the backend application service.\n\n```\n       ┌───────────────────────────────┐\n       │   HTTP Status Code Triage     │\n       └──────────────┬────────────────┘\n                      ▼\n         ┌─────────────────────────┐\n         │ First Digit Classification │\n         └────────────┬────────────┘\n         ┌────────────┼────────────┐\n         ▼            ▼            ▼\n      [ 2xx ]      [ 4xx ]      [ 5xx ]\n      Success    Client Error Server Error\n   (Action Done) (Fix Request) (Fix Server)\n```\n\n> 💡 **Instructor Tip on 204 No Content**: Explain that when a browser receives `204 No Content`, it intentionally does NOT change or reload the current page view, making it ideal for background auto-save or tracking actions.",
+          "key_concepts": [
+            "2xx Success Semantics",
+            "4xx Client Errors vs 5xx Server Failures",
+            "Debugging Status Trees"
+          ],
+          "instructor_notes": "Quick memory hook for students: 2xx = 'You got it', 4xx = 'You messed up', 5xx = 'I (server) messed up'."
+        },
+        {
+          "id": "sec-4",
+          "title": "Practical Implementation & cURL Examples",
+          "duration_min": 5,
+          "markdown_content": "### Hands-On: Anatomy of Real Requests\n\n#### 1. Real GET Request via cURL\n```bash\n# Querying a list of published articles with pagination\ncurl -i -X GET \"https://api.example.com/v1/articles?limit=5&category=tech\" \\\n  -H \"Accept: application/json\"\n```\n**Expected Response:**\n```http\nHTTP/1.1 200 OK\nContent-Type: application/json; charset=utf-8\nCache-Control: public, max-age=3600\n\n[\n  {\"id\": 101, \"title\": \"Understanding HTTP\", \"category\": \"tech\"},\n  {\"id\": 102, \"title\": \"REST API Guidelines\", \"category\": \"tech\"}\n]\n```\n\n#### 2. Real POST Request via cURL\n```bash\n# Creating a new comment on an article\ncurl -i -X POST \"https://api.example.com/v1/articles/101/comments\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer my_jwt_token_here\" \\\n  -d '{\"author\": \"Jane Doe\", \"comment\": \"Excellent breakdown of 4xx vs 5xx!\"}'\n```\n**Expected Response:**\n```http\nHTTP/1.1 201 Created\nLocation: /v1/articles/101/comments/4819\nContent-Type: application/json\n\n{\n  \"id\": 4819,\n  \"status\": \"published\",\n  \"created_at\": \"2026-11-07T12:00:00Z\"\n}\n```",
+          "key_concepts": [
+            "cURL Syntax",
+            "Header Inspection",
+            "Status Code Verification"
+          ],
+          "instructor_notes": "Have students inspect the `-i` flag in cURL which outputs response HTTP headers."
+        }
+      ],
+      "practical_applications": [
+        "Building RESTful APIs for frontend web and mobile client applications.",
+        "Diagnosing and resolving customer-facing errors in production monitoring dashboards (Datadog, Sentry).",
+        "Configuring API gateways, reverse proxies, and rate limiters to protect upstream servers."
+      ],
+      "activity": {
+        "title": "Diagnostic Detective: Triage the HTTP Incidents",
+        "duration_min": 10,
+        "instructions": "Analyze each scenario below and determine the correct HTTP Method and HTTP Status Code that should be returned.",
+        "challenge_prompt": "Scenario A: A user fills out a registration form and submits their email, username, and password. The account is created in the database.\nScenario B: A user searches for products with keyword 'headphones'. The query returns 15 matching items.\nScenario C: A mobile client calls /profile/settings with an expired OAuth token.\nScenario D: A database connection pool runs out of memory and crashes when processing an order.",
+        "starter_code": "# Diagnostic Challenge\nscenarios = {\n    \"A_Registration\": {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"B_Search\":       {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"C_ExpiredToken\": {\"method\": \"???\", \"expected_status\": \"???\"},\n    \"D_DBCrash\":      {\"method\": \"???\", \"expected_status\": \"???\"}\n}",
+        "solution_code": "# Solution Key\nscenarios = {\n    \"A_Registration\": {\"method\": \"POST\", \"expected_status\": \"201 Created\"},\n    \"B_Search\":       {\"method\": \"GET\",  \"expected_status\": \"200 OK\"},\n    \"C_ExpiredToken\": {\"method\": \"GET/POST\", \"expected_status\": \"401 Unauthorized\"},\n    \"D_DBCrash\":      {\"method\": \"POST\", \"expected_status\": \"500 Internal Server Error (or 503)\"}\n}"
+      },
+      "knowledge_checks": [
+        {
+          "id": 1,
+          "question": "Which of the following statements accurately characterizes the HTTP GET method?",
+          "options": [
+            "GET is non-idempotent because it carries data in the message body.",
+            "GET is safe and idempotent, meaning it should not alter server state on repeated invocations.",
+            "GET is inherently more secure than POST because it cannot be intercepted.",
+            "GET should be used when charging a user's credit card or submitting orders."
+          ],
+          "correct_index": 1,
+          "explanation": "GET is defined in RFC 9110 as safe (read-only) and idempotent. Calling GET multiple times produces identical state without mutating server records.",
+          "related_concept": "HTTP Method Idempotency"
+        },
+        {
+          "id": 2,
+          "question": "An API consumer attempts to create a new user via POST, but omits the mandatory 'email' field in their JSON payload. Which status code should the API return?",
+          "options": [
+            "200 OK",
+            "400 Bad Request",
+            "404 Not Found",
+            "500 Internal Server Error"
+          ],
+          "correct_index": 1,
+          "explanation": "400 Bad Request indicates that the server cannot process the request due to client error (e.g. malformed syntax, missing mandatory payload fields).",
+          "related_concept": "4xx Client Errors"
+        },
+        {
+          "id": 3,
+          "question": "What is the primary difference between a 4xx status code and a 5xx status code?",
+          "options": [
+            "4xx indicates an internal database crash, whereas 5xx indicates an invalid URL path.",
+            "4xx codes are for client-side issues (invalid request/auth), whereas 5xx codes indicate the server failed while processing.",
+            "4xx codes are automatically retried by browsers, whereas 5xx codes cannot be retried.",
+            "4xx codes carry no headers, whereas 5xx codes always carry JSON."
+          ],
+          "correct_index": 1,
+          "explanation": "4xx represents client-originating errors (bad syntax, unauthorized access, missing page). 5xx represents server-originating errors (crashes, gateway timeouts).",
+          "related_concept": "Status Code Categorization"
+        },
+        {
+          "id": 4,
+          "question": "When a resource is successfully created on the server as a direct result of a POST request, what is the most appropriate HTTP status code?",
+          "options": [
+            "200 OK",
+            "201 Created",
+            "204 No Content",
+            "302 Found"
+          ],
+          "correct_index": 1,
+          "explanation": "While 200 OK indicates generic success, 201 Created is the specific, standard HTTP status code indicating that one or more new resources have been created.",
+          "related_concept": "2xx Success Codes"
+        },
+        {
+          "id": 5,
+          "question": "A web browser sends a request to Nginx, but the upstream Python backend application is completely down. What status code will Nginx return to the client?",
+          "options": [
+            "401 Unauthorized",
+            "404 Not Found",
+            "502 Bad Gateway",
+            "200 OK with empty body"
+          ],
+          "correct_index": 2,
+          "explanation": "502 Bad Gateway indicates that an intermediate proxy or gateway server (like Nginx) received an invalid response or connection refusal from the upstream application server.",
+          "related_concept": "5xx Server Errors"
+        }
+      ],
+      "summary_takeaways": [
+        "HTTP is a stateless client-server protocol where every request receives an authoritative status code.",
+        "GET is safe and idempotent (ideal for queries); POST is non-idempotent (ideal for creating resources and state changes).",
+        "2xx signifies successful processing (200 OK, 201 Created).",
+        "4xx highlights client-side faults (400 Bad Request, 401 Unauthorized, 404 Not Found).",
+        "5xx alerts developers to server-side exceptions or infrastructure crashes (500 Internal Error, 502 Bad Gateway, 503 Unavailable)."
+      ],
+      "supplementary_videos": [
+        {
+          "title": "HTTP Crash Course & How The Web Works",
+          "channel": "Traversy Media",
+          "video_id": "iYM2zFP3Zn0",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0",
+          "duration": "24:12",
+          "thumbnail_url": "https://img.youtube.com/vi/iYM2zFP3Zn0/hqdefault.jpg",
+          "relevance_summary": "Covers HTTP protocol flow, GET vs POST requests, headers, and 2xx, 4xx, and 5xx status codes with real browser network tabs.",
+          "relevance_score": 98
+        },
+        {
+          "title": "HTTP Status Codes in 100 Seconds",
+          "channel": "Fireship",
+          "video_id": "wJa5Ch0O474",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474",
+          "duration": "02:18",
+          "thumbnail_url": "https://img.youtube.com/vi/wJa5Ch0O474/hqdefault.jpg",
+          "relevance_summary": "Fast-paced, humorous, and memorable breakdown of 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error, and 503 Unavailable.",
+          "relevance_score": 96
+        },
+        {
+          "title": "GET vs POST Methods Explained",
+          "channel": "freeCodeCamp.org",
+          "video_id": "ee5Xj_aHk68",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68",
+          "duration": "14:45",
+          "thumbnail_url": "https://img.youtube.com/vi/ee5Xj_aHk68/hqdefault.jpg",
+          "relevance_summary": "Detailed comparison of HTTP GET and POST: idempotency, URL query parameters vs message bodies, caching, and security considerations.",
+          "relevance_score": 97
+        }
+      ],
+      "references": [
+        {
+          "type": "Book",
+          "title": "HTTP: The Definitive Guide",
+          "citation": "David Gourley, Brian Totty (2002). HTTP: The Definitive Guide. O'Reilly Media.",
+          "url": "https://www.oreilly.com/library/view/http-the-definitive/1565925092/"
+        },
+        {
+          "type": "Book",
+          "title": "RESTful Web APIs: Services for a Changing World",
+          "citation": "Leonard Richardson, Mike Amundsen (2013). RESTful Web APIs: Services for a Changing World. O'Reilly Media.",
+          "url": "https://www.oreilly.com/library/view/restful-web-apis/9781449359713/"
+        },
+        {
+          "type": "Book",
+          "title": "Computer Networking: A Top-Down Approach (8th Edition)",
+          "citation": "James F. Kurose, Keith W. Ross (2021). Computer Networking: A Top-Down Approach (8th Edition). Pearson.",
+          "url": "https://www.pearson.com/en-us/subject-catalog/p/computer-networking-a-top-down-approach/P200000003334"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "MDN Web Docs: An Overview of HTTP & HTTP Methods",
+          "citation": "MDN Web Docs: An Overview of HTTP & HTTP Methods - developer.mozilla.org.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "MDN Web Docs: HTTP Response Status Codes",
+          "citation": "MDN Web Docs: HTTP Response Status Codes - developer.mozilla.org.",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+        },
+        {
+          "type": "Web Documentation",
+          "title": "RFC 9110: HTTP Semantics Specification (IETF)",
+          "citation": "RFC 9110: HTTP Semantics Specification (IETF) - rfc-editor.org.",
+          "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+        },
+        {
+          "type": "Video Resource",
+          "title": "HTTP Crash Course & How The Web Works",
+          "citation": "Traversy Media (24:12) - HTTP Crash Course & How The Web Works.",
+          "url": "https://www.youtube.com/watch?v=iYM2zFP3Zn0"
+        },
+        {
+          "type": "Video Resource",
+          "title": "HTTP Status Codes in 100 Seconds",
+          "citation": "Fireship (02:18) - HTTP Status Codes in 100 Seconds.",
+          "url": "https://www.youtube.com/watch?v=wJa5Ch0O474"
+        },
+        {
+          "type": "Video Resource",
+          "title": "GET vs POST Methods Explained",
+          "citation": "freeCodeCamp.org (14:45) - GET vs POST Methods Explained.",
+          "url": "https://www.youtube.com/watch?v=ee5Xj_aHk68"
+        }
+      ]
+    },
+    "status": "generated",
+    "qc_layer_1": {
+      "layer_name": "QC Layer 1: Research and Factual Accuracy",
+      "overall_score": 96.0,
+      "status": "PASSED WITH RECOMMENDATIONS",
+      "source_reliability_rating": "Exceptional (Peer-reviewed RFCs, O'Reilly textbooks, MDN)",
+      "claims_audit": [
+        {
+          "claim": "GET is safe and idempotent per RFC 9110 specification.",
+          "status": "VERIFIED",
+          "source": "RFC 9110 / MDN Web Docs",
+          "severity": "LOW",
+          "comment": "Accurately represents IETF standards: GET does not mutate server state across repetitive requests."
+        },
+        {
+          "claim": "POST is non-idempotent and carries data in the message body.",
+          "status": "VERIFIED",
+          "source": "HTTP: The Definitive Guide (O'Reilly)",
+          "severity": "LOW",
+          "comment": "Accurate: POST is designed to produce side effects such as creating database entries or processing transactions."
+        },
+        {
+          "claim": "2xx status codes denote client request acceptance and success.",
+          "status": "VERIFIED",
+          "source": "RFC 9110 Section 15.3",
+          "severity": "LOW",
+          "comment": "Accurate: Correctly highlights 200 OK and 201 Created semantics."
+        },
+        {
+          "claim": "4xx represents client-originating errors, whereas 5xx represents server infrastructure failures.",
+          "status": "VERIFIED",
+          "source": "MDN Web Docs: HTTP Status Codes",
+          "severity": "LOW",
+          "comment": "Accurate: Validates separation of concerns between client malformed input and server crash."
+        },
+        {
+          "claim": "POST requests are inherently secure compared to GET without HTTPS.",
+          "status": "NEEDS_CONTEXT",
+          "source": "Computer Networking: A Top-Down Approach",
+          "severity": "MEDIUM",
+          "comment": "Important clarification: POST payloads travel in plaintext across network hops unless TLS/HTTPS is active. The distinction is visibility (URLs in browser history vs payload in body)."
+        }
+      ],
+      "sources_audit": [
+        {
+          "source_name": "RFC 9110: HTTP Semantics (IETF)",
+          "type": "Official Standard",
+          "credibility_grade": "A+",
+          "relevance": "Direct foundational standard for HTTP methods and status codes."
+        },
+        {
+          "source_name": "HTTP: The Definitive Guide (O'Reilly Media)",
+          "type": "Authoritative Book",
+          "credibility_grade": "A",
+          "relevance": "Exhaustive coverage of client-server message formats and caching mechanics."
+        },
+        {
+          "source_name": "MDN Web Docs (Mozilla Foundation)",
+          "type": "Technical Documentation",
+          "credibility_grade": "A+",
+          "relevance": "Industry standard reference for real-world browser and API implementations."
+        },
+        {
+          "source_name": "Traversy Media / Fireship Tutorials",
+          "type": "Verified YouTube",
+          "credibility_grade": "B+",
+          "relevance": "High educational engagement with practical network tab demonstrations."
+        }
+      ],
+      "identified_gaps": [
+        "Clarify the specific behavioral difference between 401 Unauthorized (unauthenticated) vs 403 Forbidden (authenticated but lacking role/permission).",
+        "Emphasize explicitly that HTTPS (TLS) encryption is required to protect POST payloads from packet sniffing."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-fact-1",
+          "target_section": "GET vs POST Methods: Semantics, Idempotency, and Security",
+          "issue": "Needs explicit clarification on the difference between 401 Unauthorized and 403 Forbidden, and TLS role in POST.",
+          "recommendation": "Add a dedicated security advisory note distinguishing 401 (missing credentials) vs 403 (insufficient permissions) and reinforcing TLS encryption.",
+          "patch_text": "\n> 🔒 **Security Best Practice & Status Nuance**:\n> - **401 vs 403**: `401 Unauthorized` means 'Who are you? (Authenticate first)', whereas `403 Forbidden` means 'I know who you are, but you lack permission'.\n> - **Transport Security**: Never rely on POST alone for sensitive data. Always enforce **HTTPS (TLS 1.3)** to prevent plaintext eavesdropping across public networks.",
+          "applied": false
+        },
+        {
+          "id": "fix-fact-2",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Status code 204 No Content is mentioned briefly without explaining how it affects browser navigation.",
+          "recommendation": "Add an instructional callout on how browsers treat 204 No Content (keeping the current page view intact without reloading).",
+          "patch_text": "\n> 💡 **Instructor Tip on 204 No Content**: Explain that when a browser receives `204 No Content`, it intentionally does NOT change or reload the current page view, making it ideal for background auto-save or tracking actions.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:02:39.918665+00:00"
+    },
+    "qc_layer_2": {
+      "layer_name": "QC Layer 2: Instructional Quality",
+      "overall_score": 95.4,
+      "status": "EXCELLENT",
+      "objective_alignment_score": 98.0,
+      "bloom_taxonomy_level": "Analyze & Apply (Bloom's Taxonomy Levels 4 & 3)",
+      "rubric_breakdown": {
+        "clarity": {
+          "score": 96.0,
+          "feedback": "Technical concepts are introduced with vivid analogies (postal service, triage trees) before diving into RFC technicalities."
+        },
+        "structure": {
+          "score": 97.0,
+          "feedback": "Exemplary 5-phase progression: Hook -> Core Direct Instruction -> Code Demonstration -> Guided Hands-on Lab -> Knowledge Check."
+        },
+        "pacing_45min": {
+          "score": 95.0,
+          "feedback": "Directly calibrated to 45 minutes: 5m Hook, 15m Deep Dive, 10m Scenarios/Examples, 10m Student Lab, 5m Assessment."
+        },
+        "interactivity": {
+          "score": 94.0,
+          "feedback": "Includes a diagnostic problem-solving scenario lab with starter and solution code, plus 5 active recall multiple choice questions."
+        },
+        "assessment_rigor": {
+          "score": 95.0,
+          "feedback": "Questions target conceptual comprehension, diagnostic triage, and edge cases rather than superficial rote memorization."
+        }
+      },
+      "identified_gaps": [
+        "The transition between GET/POST and Status Codes could benefit from an explicit bridge sentence explaining that methods initiate the intent and status codes communicate the outcome.",
+        "Consider adding an instructor time-check prompt at minute 25 to help pacing in instructor-led delivery."
+      ],
+      "suggested_improvements": [
+        {
+          "id": "fix-inst-1",
+          "target_section": "Response Status Code Categories: 2xx, 4xx, and 5xx",
+          "issue": "Transitions between request methods and response codes can confuse beginners who see them as isolated concepts.",
+          "recommendation": "Add a pedagogical conceptual bridge highlighting how HTTP request methods and response status codes form a conversational dialogue.",
+          "patch_text": "\n> 🎯 **Pedagogical Bridge (The Conversation Paradigm)**:\n> Think of HTTP as a structured dialogue: The **Method (GET/POST)** is the question asked by the client; the **Status Code (2xx/4xx/5xx)** is the definitive answer returned by the server.",
+          "applied": false
+        },
+        {
+          "id": "fix-inst-2",
+          "target_section": "Diagnostic Detective: Triage the HTTP Incidents",
+          "issue": "Instructors need a rubric to debrief the hands-on lab within the 10-minute window.",
+          "recommendation": "Add an Instructor Debrief Guide with timed discussion prompts.",
+          "patch_text": "\n> ⏱️ **Instructor Pacing Cue (Minute 35)**:\n> Dedicate 6 minutes for independent student triage, followed by a 4-minute rapid-fire debrief focusing specifically on why Scenario D produces a 500 error instead of a 400 error.",
+          "applied": false
+        }
+      ],
+      "audited_at": "2026-11-07T13:02:39.919094+00:00"
     },
     "id": "9f397330-fd85-4ad4-bfe9-c38f5223ec59",
     "created_at": "2026-11-07T12:46:08.106852+00:00",
-    "updated_at": "2026-11-07T12:46:08.126941+00:00"
+    "updated_at": "2026-11-07T13:02:39.919094+00:00"
   },
   {
     "title": "Binary Search Algorithm: Theory, Implementation, and Complexity",

@@ -49,3 +49,4 @@ def retry_research():
     except Exception as e:
         logger.exception("Failed to retry research")
         return format_error_response("Failed to refresh research", code="RETRY_ERROR", status_code=500)
+
