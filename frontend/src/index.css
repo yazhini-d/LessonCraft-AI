@@ -1,4 +1,10 @@
 /* Global Modern Styles for LessonCraft AI */
+
+/* ============================================================
+   1. COLOR SYSTEMS & THEME DEFINITIONS
+   ============================================================ */
+
+/* Theme 1: Default Vibrant Indigo / Slate */
 :root {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -35,10 +41,109 @@
   --slate-800: #1e293b;
   --slate-900: #0f172a;
 
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f1f5f9;
+  --border-main: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
   --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
   --card-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
   --card-radius: 12px;
 }
+
+/* Theme 2: Black & White Light (Clean Monochrome Paper / E-Ink Minimalist) */
+[data-theme="bw-light"] {
+  --primary: #000000;
+  --primary-hover: #262626;
+  --primary-light: #f4f4f5;
+  --primary-subtle: #e4e4e7;
+
+  --secondary: #27272a;
+  --secondary-light: #f4f4f5;
+
+  --success: #000000;
+  --success-light: #f4f4f5;
+  --success-border: #000000;
+
+  --warning: #18181b;
+  --warning-light: #f4f4f5;
+  --warning-border: #27272a;
+
+  --danger: #000000;
+  --danger-light: #f4f4f5;
+  --danger-border: #000000;
+
+  --slate-50: #ffffff;
+  --slate-100: #f4f4f5;
+  --slate-200: #e4e4e7;
+  --slate-300: #d4d4d8;
+  --slate-400: #a1a1aa;
+  --slate-500: #71717a;
+  --slate-600: #52525b;
+  --slate-700: #3f3f46;
+  --slate-800: #18181b;
+  --slate-900: #000000;
+
+  --bg-app: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f4f4f5;
+  --border-main: #000000;
+  --text-main: #000000;
+  --text-muted: #52525b;
+
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --card-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme 3: Black & White Dark (Cyber Noir High Contrast) */
+[data-theme="bw-dark"] {
+  --primary: #ffffff;
+  --primary-hover: #e4e4e7;
+  --primary-light: #18181b;
+  --primary-subtle: #27272a;
+
+  --secondary: #d4d4d8;
+  --secondary-light: #18181b;
+
+  --success: #ffffff;
+  --success-light: #18181b;
+  --success-border: #ffffff;
+
+  --warning: #e4e4e7;
+  --warning-light: #18181b;
+  --warning-border: #d4d4d8;
+
+  --danger: #ffffff;
+  --danger-light: #18181b;
+  --danger-border: #ffffff;
+
+  --slate-50: #09090b;
+  --slate-100: #121214;
+  --slate-200: #27272a;
+  --slate-300: #3f3f46;
+  --slate-400: #71717a;
+  --slate-500: #a1a1aa;
+  --slate-600: #d4d4d8;
+  --slate-700: #e4e4e7;
+  --slate-800: #f4f4f5;
+  --slate-900: #ffffff;
+
+  --bg-app: #000000;
+  --bg-surface: #0a0a0c;
+  --bg-surface-alt: #18181b;
+  --border-main: #27272a;
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
+
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  --card-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.9);
+}
+
+/* ============================================================
+   2. CORE BASE STYLES
+   ============================================================ */
 
 * {
   box-sizing: border-box;
@@ -48,13 +153,13 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #f8fafc;
-  color: var(--slate-800);
+  background-color: var(--bg-app);
+  color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* App Shell Layout */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -69,14 +174,18 @@ body {
   padding: 32px 24px 64px 24px;
 }
 
-/* Navigation Bar */
+/* ============================================================
+   3. NAVBAR
+   ============================================================ */
+
 .navbar {
-  background: #ffffff;
-  border-bottom: 1px solid var(--slate-200);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-main);
   position: sticky;
   top: 0;
   z-index: 50;
   backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
 }
 
 .navbar-inner {
@@ -93,18 +202,30 @@ body {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: var(--slate-900);
+  color: var(--text-main);
 }
 
 .brand-icon {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  background: var(--primary);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--bg-surface);
+}
+
+[data-theme="bw-light"] .brand-icon {
+  background: #000000;
   color: #ffffff;
+  border: 1px solid #000000;
+}
+
+[data-theme="bw-dark"] .brand-icon {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
 }
 
 .brand-text h1 {
@@ -123,6 +244,18 @@ body {
   color: var(--primary);
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+[data-theme="bw-light"] .brand-badge {
+  border: 1px solid #000000;
+  background: #f4f4f5;
+  color: #000000;
+}
+
+[data-theme="bw-dark"] .brand-badge {
+  border: 1px solid #ffffff;
+  background: #18181b;
+  color: #ffffff;
 }
 
 .nav-links {
@@ -146,7 +279,7 @@ body {
 
 .nav-link:hover {
   background-color: var(--slate-100);
-  color: var(--slate-900);
+  color: var(--text-main);
 }
 
 .nav-link.active {
@@ -155,13 +288,21 @@ body {
   font-weight: 600;
 }
 
+[data-theme="bw-dark"] .nav-link.active {
+  background-color: #27272a;
+  color: #ffffff;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Button UI Components */
+/* ============================================================
+   4. BUTTONS & CONTROLS
+   ============================================================ */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -179,28 +320,33 @@ body {
 
 .btn-primary {
   background: var(--primary);
-  color: #ffffff;
+  color: var(--bg-surface);
+}
+
+[data-theme="bw-dark"] .btn-primary {
+  background: #ffffff;
+  color: #000000;
 }
 
 .btn-primary:hover {
   background: var(--primary-hover);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  opacity: 0.92;
 }
 
 .btn-outline {
-  background: #ffffff;
-  border-color: var(--slate-300);
-  color: var(--slate-700);
+  background: var(--bg-surface);
+  border-color: var(--border-main);
+  color: var(--text-main);
 }
 
 .btn-outline:hover {
-  background: var(--slate-50);
+  background: var(--slate-100);
   border-color: var(--slate-400);
 }
 
 .btn-secondary {
   background: var(--slate-100);
-  color: var(--slate-700);
+  color: var(--text-main);
 }
 
 .btn-secondary:hover {
@@ -209,11 +355,19 @@ body {
 
 .btn-success {
   background: var(--success);
-  color: #ffffff;
+  color: var(--bg-surface);
 }
 
-.btn-success:hover {
-  background: #059669;
+[data-theme="bw-light"] .btn-success {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+
+[data-theme="bw-dark"] .btn-success {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
 }
 
 .btn-sm {
@@ -233,21 +387,25 @@ body {
   cursor: not-allowed;
 }
 
-/* Cards & Surfaces */
+/* ============================================================
+   5. CARDS & SURFACES
+   ============================================================ */
+
 .card {
-  background: #ffffff;
-  border: 1px solid var(--slate-200);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
   border-radius: var(--card-radius);
   padding: 24px;
   box-shadow: var(--card-shadow);
   margin-bottom: 24px;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--slate-200);
+  border-bottom: 1px solid var(--border-main);
   padding-bottom: 16px;
   margin-bottom: 20px;
 }
@@ -255,13 +413,16 @@ body {
 .card-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--slate-900);
+  color: var(--text-main);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* Badges */
+/* ============================================================
+   6. BADGES
+   ============================================================ */
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -277,10 +438,32 @@ body {
   color: var(--primary);
 }
 
+[data-theme="bw-light"] .badge-primary {
+  background: #000000;
+  color: #ffffff;
+}
+
+[data-theme="bw-dark"] .badge-primary {
+  background: #ffffff;
+  color: #000000;
+}
+
 .badge-success {
   background: var(--success-light);
   color: var(--success);
   border: 1px solid var(--success-border);
+}
+
+[data-theme="bw-light"] .badge-success {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+[data-theme="bw-dark"] .badge-success {
+  background: #18181b;
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .badge-warning {
@@ -289,10 +472,34 @@ body {
   border: 1px solid var(--warning-border);
 }
 
+[data-theme="bw-light"] .badge-warning {
+  background: #f4f4f5;
+  color: #000000;
+  border: 1px solid #52525b;
+}
+
+[data-theme="bw-dark"] .badge-warning {
+  background: #18181b;
+  color: #ffffff;
+  border: 1px solid #71717a;
+}
+
 .badge-danger {
   background: var(--danger-light);
   color: var(--danger);
   border: 1px solid var(--danger-border);
+}
+
+[data-theme="bw-light"] .badge-danger {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+[data-theme="bw-dark"] .badge-danger {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
 .badge-neutral {
@@ -300,7 +507,10 @@ body {
   color: var(--slate-600);
 }
 
-/* Form Styles */
+/* ============================================================
+   7. FORM INPUTS
+   ============================================================ */
+
 .form-group {
   margin-bottom: 20px;
 }
@@ -309,7 +519,7 @@ body {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: var(--slate-700);
+  color: var(--text-main);
   margin-bottom: 6px;
 }
 
@@ -318,17 +528,17 @@ body {
   padding: 10px 14px;
   font-size: 14px;
   font-family: var(--font-sans);
-  border: 1px solid var(--slate-300);
+  border: 1px solid var(--border-main);
   border-radius: 8px;
-  background: #ffffff;
-  color: var(--slate-900);
+  background: var(--bg-surface);
+  color: var(--text-main);
   transition: all 0.15s ease;
 }
 
 .form-control:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 3px rgba(120, 120, 120, 0.2);
 }
 
 textarea.form-control {
@@ -336,7 +546,10 @@ textarea.form-control {
   min-height: 85px;
 }
 
-/* Dual QC Overview & Cards */
+/* ============================================================
+   8. DUAL QC AUDITS & SCORE GAUGES
+   ============================================================ */
+
 .qc-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -345,8 +558,8 @@ textarea.form-control {
 }
 
 .qc-audit-card {
-  background: #ffffff;
-  border: 1px solid var(--slate-200);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
   border-radius: var(--card-radius);
   padding: 24px;
   box-shadow: var(--card-shadow);
@@ -370,7 +583,7 @@ textarea.form-control {
 .score-number {
   font-size: 38px;
   font-weight: 800;
-  color: var(--slate-900);
+  color: var(--text-main);
   line-height: 1;
 }
 
@@ -396,18 +609,22 @@ textarea.form-control {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--slate-600);
-  border-bottom: 1px solid var(--slate-200);
+  border-bottom: 1px solid var(--border-main);
   text-align: left;
 }
 
 .claims-table td {
   padding: 12px 14px;
   font-size: 13px;
-  border-bottom: 1px solid var(--slate-200);
+  border-bottom: 1px solid var(--border-main);
   vertical-align: top;
+  color: var(--text-main);
 }
 
-/* Timeline & Pacing Visualizer */
+/* ============================================================
+   9. TIMELINE & 45-MIN PACING
+   ============================================================ */
+
 .timeline-track {
   display: flex;
   align-items: stretch;
@@ -419,8 +636,8 @@ textarea.form-control {
 .timeline-step {
   flex: 1;
   min-width: 180px;
-  background: #ffffff;
-  border: 1px solid var(--slate-200);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
   border-radius: 8px;
   padding: 14px;
   position: relative;
@@ -437,11 +654,14 @@ textarea.form-control {
 .timeline-step .phase-title {
   font-size: 13px;
   font-weight: 600;
-  color: var(--slate-800);
+  color: var(--text-main);
   line-height: 1.3;
 }
 
-/* Video Card Grid */
+/* ============================================================
+   10. VIDEO GRID
+   ============================================================ */
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -450,8 +670,8 @@ textarea.form-control {
 }
 
 .video-card {
-  background: #ffffff;
-  border: 1px solid var(--slate-200);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
@@ -472,11 +692,22 @@ textarea.form-control {
   object-fit: cover;
 }
 
+[data-theme="bw-light"] .video-thumb,
+[data-theme="bw-dark"] .video-thumb {
+  filter: grayscale(100%);
+  transition: filter 0.2s ease;
+}
+
+[data-theme="bw-light"] .video-thumb:hover,
+[data-theme="bw-dark"] .video-thumb:hover {
+  filter: grayscale(0%);
+}
+
 .video-duration {
   position: absolute;
   bottom: 8px;
   right: 8px;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
   padding: 2px 6px;
   font-size: 11px;
@@ -495,15 +726,18 @@ textarea.form-control {
 .video-title {
   font-size: 14px;
   font-weight: 600;
-  color: var(--slate-900);
+  color: var(--text-main);
   margin-bottom: 6px;
   line-height: 1.3;
 }
 
-/* Quiz Styles */
+/* ============================================================
+   11. ACTIVE RECALL QUIZ
+   ============================================================ */
+
 .quiz-card {
   background: var(--slate-50);
-  border: 1px solid var(--slate-200);
+  border: 1px solid var(--border-main);
   border-radius: 10px;
   padding: 20px;
   margin-bottom: 20px;
@@ -515,12 +749,13 @@ textarea.form-control {
   gap: 12px;
   padding: 10px 14px;
   margin: 8px 0;
-  background: #ffffff;
-  border: 1px solid var(--slate-200);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.15s ease;
   font-size: 14px;
+  color: var(--text-main);
 }
 
 .quiz-option:hover {
@@ -531,44 +766,82 @@ textarea.form-control {
 .quiz-option.selected-correct {
   background: var(--success-light);
   border-color: var(--success);
-  color: #065f46;
+  color: var(--text-main);
   font-weight: 600;
+}
+
+[data-theme="bw-light"] .quiz-option.selected-correct {
+  border: 2px solid #000000;
+  background: #f4f4f5;
+}
+
+[data-theme="bw-dark"] .quiz-option.selected-correct {
+  border: 2px solid #ffffff;
+  background: #18181b;
 }
 
 .quiz-option.selected-incorrect {
   background: var(--danger-light);
   border-color: var(--danger);
-  color: #991b1b;
+  color: var(--text-main);
 }
 
-/* Markdown & Code Body */
+[data-theme="bw-light"] .quiz-option.selected-incorrect {
+  border: 1px dashed #000000;
+  text-decoration: line-through;
+}
+
+[data-theme="bw-dark"] .quiz-option.selected-incorrect {
+  border: 1px dashed #ffffff;
+  text-decoration: line-through;
+}
+
+/* ============================================================
+   12. MARKDOWN & CODE BLOCKS
+   ============================================================ */
+
 .markdown-body {
   font-size: 15px;
   line-height: 1.7;
-  color: var(--slate-800);
+  color: var(--text-main);
 }
 
-.markdown-body h2, .markdown-body h3, .markdown-body h4 {
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
   margin: 18px 0 10px 0;
-  color: var(--slate-900);
+  color: var(--text-main);
 }
 
 .markdown-body p {
   margin-bottom: 12px;
 }
 
-.markdown-body pre, code {
+.markdown-body pre,
+code {
   font-family: var(--font-mono);
   font-size: 13px;
 }
 
 .markdown-body pre {
-  background: #1e293b;
-  color: #f8fafc;
+  background: var(--slate-900);
+  color: var(--slate-50);
   padding: 16px;
   border-radius: 8px;
   overflow-x: auto;
   margin: 14px 0;
+  border: 1px solid var(--border-main);
+}
+
+[data-theme="bw-light"] .markdown-body pre {
+  background: #000000;
+  color: #ffffff;
+}
+
+[data-theme="bw-dark"] .markdown-body pre {
+  background: #09090b;
+  color: #ffffff;
+  border-color: #27272a;
 }
 
 .markdown-body code:not(pre code) {
@@ -576,6 +849,18 @@ textarea.form-control {
   color: var(--primary);
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+[data-theme="bw-light"] .markdown-body code:not(pre code) {
+  background: #f4f4f5;
+  color: #000000;
+  border: 1px solid #d4d4d8;
+}
+
+[data-theme="bw-dark"] .markdown-body code:not(pre code) {
+  background: #18181b;
+  color: #ffffff;
+  border: 1px solid #27272a;
 }
 
 .markdown-body blockquote {
@@ -586,11 +871,26 @@ textarea.form-control {
   margin: 14px 0;
 }
 
-/* Modal */
+[data-theme="bw-light"] .markdown-body blockquote {
+  border-left: 4px solid #000000;
+  background: #f4f4f5;
+  color: #000000;
+}
+
+[data-theme="bw-dark"] .markdown-body blockquote {
+  border-left: 4px solid #ffffff;
+  background: #18181b;
+  color: #ffffff;
+}
+
+/* ============================================================
+   13. MODALS & TOASTS
+   ============================================================ */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.55);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -600,23 +900,24 @@ textarea.form-control {
 }
 
 .modal-content {
-  background: #ffffff;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-main);
   border-radius: 14px;
   max-width: 650px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   padding: 28px;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25);
+  color: var(--text-main);
 }
 
-/* Toast Notification */
 .toast {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: var(--slate-900);
-  color: #ffffff;
+  background: var(--primary);
+  color: var(--bg-surface);
   padding: 12px 20px;
   border-radius: 8px;
   box-shadow: var(--card-shadow-lg);
@@ -625,11 +926,23 @@ textarea.form-control {
   gap: 10px;
   font-size: 14px;
   font-weight: 500;
+  border: 1px solid var(--border-main);
   z-index: 200;
   animation: slideIn 0.2s ease-out;
 }
 
+[data-theme="bw-dark"] .toast {
+  background: #ffffff;
+  color: #000000;
+}
+
 @keyframes slideIn {
-  from { transform: translateY(16px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

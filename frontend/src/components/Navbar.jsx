@@ -9,8 +9,9 @@ import {
   Settings, 
   Layers
 } from 'lucide-react';
+import ThemeSelector from './ThemeSelector';
 
-export default function Navbar({ activeLesson, onOpenSettings, onSelectSample }) {
+export default function Navbar({ activeLesson, onOpenSettings }) {
   const location = useLocation();
 
   return (
@@ -25,7 +26,7 @@ export default function Navbar({ activeLesson, onOpenSettings, onSelectSample })
               <h1>LessonCraft AI</h1>
               <span className="brand-badge">Kalvium</span>
             </div>
-            <div style={{ fontSize: '11px', color: '#64748b' }}>45-Min Educational Synthesis & Dual QC</div>
+            <div style={{ fontSize: '11px', color: 'var(--slate-500)' }}>45-Min Educational Synthesis & Dual QC</div>
           </div>
         </Link>
 
@@ -68,6 +69,9 @@ export default function Navbar({ activeLesson, onOpenSettings, onSelectSample })
         </nav>
 
         <div className="nav-actions">
+          {/* Visual Theme Selector (Default / Black & White) */}
+          <ThemeSelector />
+
           <button 
             type="button" 
             className="btn btn-outline btn-sm"
